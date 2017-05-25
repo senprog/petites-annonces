@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Etatarticleannonces list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etatArticleAnnonce in etatArticleAnnonces %}
+            <tr>
+                <td><a href="{{ path('etatarticleannonce_show', { 'id': etatArticleAnnonce.id }) }}">{{ etatArticleAnnonce.id }}</a></td>
+                <td>{{ etatArticleAnnonce.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etatarticleannonce_show', { 'id': etatArticleAnnonce.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etatarticleannonce_edit', { 'id': etatArticleAnnonce.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etatarticleannonce_new') }}">Create a new etatArticleAnnonce</a>
+        </li>
+    </ul>
+{% endblock %}

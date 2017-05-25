@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Souscategorieannonce</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sousCategorieAnnonce.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomsouscategorie</th>
+                <td>{{ sousCategorieAnnonce.nomSousCategorie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('souscategorieannonce_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('souscategorieannonce_new') }}">Nouveau</a>
+        </li>
+        <li>
+            <a href="{{ path('souscategorieannonce_edit', { 'id': sousCategorieAnnonce.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Annonce</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ annonce.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ annonce.titre }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ annonce.prix }}</td>
+            </tr>
+            <tr>
+                <th>Typeprix</th>
+                <td>{{ annonce.typePrix }}</td>
+            </tr>
+            <tr>
+                <th>Lieux</th>
+                <td>{{ annonce.lieux }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ annonce.description }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ annonce.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tags</th>
+                <td>{{ annonce.tags }}</td>
+            </tr>
+            <tr>
+                <th>Googlemap</th>
+                <td>{{ annonce.googleMap }}</td>
+            </tr>
+            <tr>
+                <th>Typeannonceur</th>
+                <td>{{ annonce.typeAnnonceur }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ annonce.photo }}</td>
+            </tr>
+            <tr>
+                <th>Photo2</th>
+                <td>{{ annonce.photo2 }}</td>
+            </tr>
+            <tr>
+                <th>Photo3</th>
+                <td>{{ annonce.photo3 }}</td>
+            </tr>
+            <tr>
+                <th>Photo4</th>
+                <td>{{ annonce.photo4 }}</td>
+            </tr>
+            <tr>
+                <th>Photo5</th>
+                <td>{{ annonce.photo5 }}</td>
+            </tr>
+            <tr>
+                <th>Vote</th>
+                <td>{{ annonce.vote }}</td>
+            </tr>
+            <tr>
+                <th>Nombrevue</th>
+                <td>{{ annonce.nombreVue }}</td>
+            </tr>
+            <tr>
+                <th>Datepublication</th>
+                <td>{% if annonce.datePublication %}{{ annonce.datePublication|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{% if annonce.dateModification %}{{ annonce.dateModification|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datesuppression</th>
+                <td>{% if annonce.dateSuppression %}{{ annonce.dateSuppression|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('annonce_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('annonce_edit', { 'id': annonce.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,60 @@
+{
+    "name": "atom-php/uploader",
+    "description": "This is a simple yet flexible PHP library for file uploads via ORM embeddable objects, ORM entities, etc.",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Elbek Azimov",
+            "email": "atom.azimov@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Atom\\Uploader\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\Atom\\Uploader\\": "spec/",
+            "ExampleApp\\": "example-app/src/",
+            "Context\\": "features/Context"
+        }
+    },
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "doctrine/orm": "^2.5",
+        "phpspec/phpspec": "^3.0",
+        "phpunit/phpunit": "^5.7.9",
+        "league/flysystem": "^1.0",
+        "mikey179/vfsStream": "^1.6",
+        "twistor/flysystem-stream-wrapper": "^1.0",
+        "behat/behat": "^3.3",
+        "symfony/console": "^3.2",
+        "symfony/yaml": "^3.2",
+        "symfony/property-access": "^3.2",
+        "doctrine/dbal": "^2.5"
+    },
+    "suggest": {
+        "doctrine/orm": "You can use doctrine orm as a persistence layer for your business objects.",
+        "league/flysystem": "You can use flysystem as a filesystem adapter instead the local filesystem adapter.",
+        "twistor/flysystem-stream-wrapper": "Use it if you use flysystem and want mount a filesystem at a file info resolution."
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.5.x-dev"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "test": [
+            "phpspec run",
+            "behat"
+        ]
+    }
+}

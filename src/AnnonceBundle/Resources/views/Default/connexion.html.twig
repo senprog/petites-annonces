@@ -1,0 +1,104 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Audry BABELA">
+        <meta name="description" content="">
+
+        <title>Connection | World's Largest Classifieds Portal</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/icofont.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/slidr.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css', 'avatars') }}">
+        <link id="preset" rel="stylesheet" href="{{ asset('css/presets/preset1.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/responsive.css', 'avatars') }}">
+
+
+        <!-- font -->
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,300,600,700' rel='stylesheet' type='text/css'>
+
+        <!-- icons -->
+        <link rel="icon" href="images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/ico/apple-touch-icon-144-precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/ico/apple-touch-icon-114-precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="{{ asset('images/ico/apple-touch-icon-72--precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="57x57"   href="{{ asset('images/ico/apple-touch-icon-57-precomposed.png', 'avatars') }}">
+        <!-- icons -->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Template Developed By ThemeRegion -->
+    </head>
+    <body>
+    <!-- header -->
+    <header id="header" class="clearfix">
+        <!-- navbar -->
+            {% include '@Annonce/Default/menu.html.twig' %}
+        <!-- navbar -->
+    </header><!-- header -->
+
+    <!-- signin-page -->
+    <section id="main" class="clearfix user-page">
+        <div class="container">
+            <div class="row text-center">
+                <!-- user-login -->
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <div class="user-account">
+                        <h2>Authentification</h2>
+
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            <br>
+                        {% endif %}
+
+                        <!-- form -->
+                        <form action="{{ path('login_check') }}" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" placeholder="Username ou email" >
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password" name="_password" placeholder="Mot de passe" >
+                            </div>
+
+                            {#<input type="hidden" name="_target_path" value="account" />#}
+
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+
+                            <button type="submit" href="#" class="btn" name="login">SE CONNECTER</button>
+                        </form>
+                        <!-- form -->
+
+
+                        <!-- forgot-password -->
+                        <div class="user-option">
+                            <div class="checkbox pull-left">
+                                <label for="logged"><input type="checkbox" name="logged" id="logged"> Se souvenir de moi </label>
+                            </div>
+                            <div class="pull-right forgot-password">
+                                <a href="#">Mot de passe oubli&eacute; ?</a>
+                            </div>
+                        </div><!-- forgot-password -->
+                    </div>
+                    <a href="{{ path('user_inscription') }}" class="btn-primary">Cr&eacute;er un nouveau compte</a>
+                </div><!-- user-login -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- signin-page -->
+
+    <!-- footer -->
+
+    {% include '@Annonce/Default/footer.html.twig' %}
+
+    </body>
+    </html>

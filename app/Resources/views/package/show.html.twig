@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Package</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ package.id }}</td>
+            </tr>
+            <tr>
+                <th>Nompackage</th>
+                <td>{{ package.nomPackage }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ package.montant }}</td>
+            </tr>
+            <tr>
+                <th>Devise</th>
+                <td>{{ package.devise }}</td>
+            </tr>
+            <tr>
+                <th>Nombrejours</th>
+                <td>{{ package.nombreJours }}</td>
+            </tr>
+            <tr>
+                <th>Nombrephotos</th>
+                <td>{{ package.nombrePhotos }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('package_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('package_edit', { 'id': package.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

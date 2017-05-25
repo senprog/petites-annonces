@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Typeannonces list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeAnnonce in typeAnnonces %}
+            <tr>
+                <td><a href="{{ path('typeannonce_show', { 'id': typeAnnonce.id }) }}">{{ typeAnnonce.id }}</a></td>
+                <td>{{ typeAnnonce.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('typeannonce_show', { 'id': typeAnnonce.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('typeannonce_edit', { 'id': typeAnnonce.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typeannonce_new') }}">Create a new typeAnnonce</a>
+        </li>
+    </ul>
+{% endblock %}

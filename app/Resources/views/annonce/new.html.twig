@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Audry BABELA">
+    <meta name="description" content="">
+
+    <title>
+        {% block title %}
+            Annonces gratuites | Postez annonce gratuite
+        {% endblock %}
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css', 'avatars') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css', 'avatars') }}">
+    <link rel="stylesheet" href="{{ asset('css/icofont.css', 'avatars') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css', 'avatars') }}">
+    <link rel="stylesheet" href="{{ asset('css/slidr.css', 'avatars') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css', 'avatars') }}">
+    <link id="preset" rel="stylesheet" href="{{ asset('css/presets/preset1.css', 'avatars') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css', 'avatars') }}">
+
+    <!-- font -->
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,300,600,700' rel='stylesheet'
+          type='text/css'>
+
+    <!-- icons -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/ico/apple-touch-icon-144-precomposed.png', 'avatars') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/ico/apple-touch-icon-114-precomposed.png', 'avatars') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('images/ico/apple-touch-icon-72-precomposed.png', 'avatars') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('images/ico/apple-touch-icon-57-precomposed.png', 'avatars') }}">
+    <!-- icons -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Template Developed Audry BABELA -->
+
+    <!-- inclusion de dropzone dans le template -->
+    <script src="{{ asset('bundles/annonce/js/dropzone.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bundles/annonce/js/dropzone.css') }}">
+
+</head>
+<body>
+<!-- header -->
+<header id="header" class="clearfix">
+    <!-- navbar -->
+    {% include '@Annonce/Default/menu.html.twig' %}
+</header>
+<!-- header -->
+
+<!-- main -->
+<section id="main" class="clearfix ad-details-page">
+    <div class="container">
+
+        <div class="breadcrumb-section">
+            <!-- breadcrumb -->
+            <ol class="breadcrumb">
+                <li><a href="{{ path('accueil') }}">Accueil</a></li>
+                <li>Annonce</li>
+            </ol><!-- breadcrumb -->
+            <h2 class="title">Poster annonce gratuite</h2>
+        </div><!-- banner -->
+
+        <div class="adpost-details">
+            <div class="row">
+                <div class="col-md-8">
+
+                    {{ form_start(form, { 'multipart' : true }) }}
+                    <fieldset>
+                        <div class="section postdetails">
+                            <h4>Vendez un bien ou un service<span class="pull-right">* Champs obligatoires</span></h4>
+
+                            <div class="row form-group">
+                                <label class="col-sm-3">{{ form_label(form.typeAnnonce) }}<span class="required">*</span></label>
+                                <div class="col-sm-9 user-type">
+                                    {{ form_errors(form.typeAnnonce) }}
+                                    {{ form_widget(form.typeAnnonce) }}
+                                </div>
+                            </div>
+
+                            <div class="row form-group add-title">
+                                <label class="col-sm-3 label-title">{{ form_label(form.titre) }}<span class="required">*</span></label>
+                                <div class="col-sm-9">
+                                    {{ form_errors(form.titre) }}
+                                    {{ form_widget(form.titre, { 'attr': {'class': 'form-control'} }) }}
+
+                                </div>
+                            </div>
+
+                            <div class="row form-group add-title">
+                                <label class="col-sm-3 label-title">{{ form_label(form.categorie) }}<span class="required">*</span></label>
+                                <div class="col-sm-9">
+                                    {{ form_errors(form.categorie) }}
+                                    {{ form_widget(form.categorie, { 'attr': {'class': 'form-control'} }) }}
+
+                                </div>
+                            </div>
+
+                            <div class="row form-group add-title">
+                                <label class="col-sm-3 label-title">{{ form_label(form.sousCategorie) }}<span class="required">*</span></label>
+                                <div class="col-sm-9">
+                                    {{ form_errors(form.sousCategorie) }}
+                                    {{ form_widget(form.sousCategorie, { 'attr': {'class': 'form-control'} }) }}
+
+                                </div>
+                            </div>
+
+                            <div class="row form-group item-description">
+                                <label class="col-sm-3 label-title">{{ form_label(form.description) }}<span class="required">*</span></label>
+                                <div class="col-sm-9">
+                                    {{ form_errors(form.description) }}
+                                    {{ form_widget(form.description) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-9 col-sm-offset-3">
+                                    <p>5000 characters left</p>
+                                </div>
+                            </div>
+
+                            <div class="row form-group add-image">
+                                <label class="col-sm-3 label-title">Photos de votre annonce <span>(photo de couverture )</span> </label>
+                                <div class="col-sm-9">
+                                    <h5>
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        Seleectionnez photos &agrave; uploader / Glissez deposez le fichier <span>
+                                                Vous pouvez télécharger plusieurs images</span>
+                                    </h5>
+                                    <div class="upload-section">
+
+                                       {# <label class="upload-image" for="upload-image-one">
+                                            {{ form_widget(form.imageFile) }}
+                                        </label>#}
+
+                                        <label class="upload-image" for="upload-image-two">
+                                            {{ form_widget(form.photo2) }}
+                                        </label>
+                                        <label class="upload-image" for="upload-image-three">
+                                            {{ form_widget(form.photo3) }}
+                                        </label>
+
+                                        <label class="upload-image" for="upload-imagefour">
+                                            {{ form_widget(form.photo4) }}
+                                        </label>
+
+                                    </div>
+
+                                    <div class="upload-section">
+
+                                        <label class="upload-image" for="upload-imagefour">
+                                            {{ form_widget(form.photo5) }}
+                                        </label>
+
+                                        <label class="upload-image" for="upload-imagefour">
+                                            {{ form_widget(form.photo6) }}
+                                        </label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row form-group select-condition">
+                                <label class="col-sm-3">{{ form_label(form.etatArticleAnnonce) }}<span class="required">*</span></label>
+                                <div class="col-sm-9">
+                                    {{ form_errors(form.etatArticleAnnonce) }}
+                                    {{ form_widget(form.etatArticleAnnonce) }}
+                                </div>
+                            </div>
+
+                            <div class="row form-group select-price">
+                                <label class="col-sm-3 label-title">{{ form_label(form.prix) }}<span class="required">*</span></label>
+                                <div class="col-sm-9">
+                                    {{ form_errors(form.prix) }}
+                                    {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }}
+                                    <label for="negotiable">
+                                        {{ form_widget(form.typePrix, { 'attr': {'class': 'form-control'} }) }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row form-group devise">
+
+                                <label class="col-sm-3 label-title">{{ form_label(form.devise) }}<span class="required">*</span></label>
+                                <div class="col-sm-9">
+                                    {{ form_errors(form.devise) }}
+                                    {{ form_widget(form.devise) }}
+                                </div>
+
+                            </div>
+
+
+                        </div><!-- section -->
+
+                        <div class="section seller-info">
+                            <h4>Ville où se trouve l'objet vendu</h4>
+
+                            <div class="row form-group add-title">
+                                <label class="col-sm-4 label-title">{{ form_label(form.adresseObjetVendu) }}<span class="required">*</span></label>
+                                <div class="col-sm-8">
+                                    {{ form_errors(form.adresseObjetVendu) }}
+                                    {{ form_widget(form.adresseObjetVendu, { 'attr': { 'class': 'form-control'} }) }}
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- section -->
+
+                        {% if is_granted('ROLE_USER') %}
+
+                        {% else %}
+                            <div class="section seller-info">
+                                <h4>Seller Information</h4>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 label-title">Condition<span class="required">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="radio" name="sellerType" value="individual" id="individual">
+                                        <label for="individual">Individual</label>
+                                        <input type="radio" name="sellerType" value="dealer" id="dealer">
+                                        <label for="dealer">Dealer</label>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 label-title">Your Name<span class="required">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="name" class="form-control" placeholder="ex, Jhon Doe">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 label-title">Your Email ID<span class="required">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="email" name="email" class="form-control" placeholder="ex, jhondoe@mail.com">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 label-title">Mobile Number<span class="required">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="mobileNumber" class="form-control" placeholder="ex, +912457895">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 label-title">Address</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="address" class="form-control" placeholder="ex, alekdera House, coprotec, usa">
+                                    </div>
+                                </div>
+                            </div><!-- section -->
+                        {% endif %}
+
+                        <div class="section">
+                            <h4>Mettez votre annonce </h4>
+                            <p>Mettez votre annonce en avant en l'affichant sur la premiere page du site. Maximisez vos chances de vente ou d'achat. <a href="#">En savoir plus</a></p>
+                            <ul class="premium-options">
+                                <li class="premium">
+                                    <input type="radio" name="premiumOption" value="day-one" id="day-one">
+                                    <label for="day-one">Regular Ad Per Day</label>
+                                    <span>$20.00</span>
+                                </li>
+                                <li class="premium">
+                                    <input type="radio" name="premiumOption" value="day-two" id="day-two">
+                                    <label for="day-two">Top Ad for 3 days</label>
+                                    <span>$30.00</span>
+                                </li>
+                                <li class="premium">
+                                    <input type="radio" name="premiumOption" value="day-three" id="day-three">
+                                    <label for="day-three">Top Ad for 7 days</label>
+                                    <span>$50.00</span>
+                                </li>
+
+                            </ul>
+                        </div><!-- section -->
+
+                        <div class="checkbox section agreement">
+                            <label for="send">
+                                <input type="checkbox" name="send" id="send">
+                                Send me Trade Email/SMS Alerts for people looking to buy mobile handsets in www By clicking "Post", you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a> and acknowledge that you are the rightful owner of this item and using Trade to find a genuine buyer.
+                            </label>
+                            <button type="submit" class="btn btn-primary">Poster votre annonce</button>
+                        </div><!-- section -->
+
+                    </fieldset>
+                    {{ form_end(form) }}
+                    <!-- form -->
+                </div>
+
+
+                <!-- quick-rules -->
+                <div class="col-md-4">
+                    <div class="section quick-rules">
+                        <h4>Quelques règles</h4>
+                        <p class="lead">Poster une annonce sur <a href="#">congo-market.com</a> est gratuit, mais il faut respecter les regles suivantes:</p>
+
+                        <ul>
+                            <li>Poster dans la bonne categorie</li>
+                            <li>Ne pas reposter la meme annonce plusieurs fois ou dans differentes catégories.</li>
+                            <li>Ne pas télécharger des images avec annonce publicitaire</li>
+                            <li>Pas d'annonces à caractère sexuel ou pédophile.</li>
+                            <li>Pas de vente d'arme, de drogue ou toutes autres substances interdites dans votre pays de résidence.</li>
+                            <li>Ne pas inserer votre nom ou numéro de téléphone dans le titre ou la description.</li>
+                            <li>Rassurer vous que votre poste est dans la bonne catégorie.</li>
+                            <li>Ne pas poster une annonce mensongère dans le but d'arnaquer les internautes. Des poursuites pourront etre lancées contre vous.</li>
+                            <li>Vous etes le(s) seul(s) responsable de vos publication</li>
+                        </ul>
+                    </div>
+                </div><!-- quick-rules -->
+            </div><!-- photos-ad -->
+        </div>
+    </div><!-- container -->
+</section><!-- main -->
+
+<!-- footer -->
+
+
+
+<script src="{{ asset('bundles/app/trade-template/js/jquery.min.js') }}"></script>
+
+<script>
+    var $sport = $('#annoncebundle_annonce_categorie');
+    // When sport gets selected ...
+    $sport.change(function() {
+        // ... retrieve the corresponding form.
+        var $form = $(this).closest('form');
+        // Simulate form data, but only include the selected sport value.
+        var data = {};
+        data[$sport.attr('name')] = $sport.val();
+        // Submit data via AJAX to the form's action path.
+        $.ajax({
+            url : $form.attr('action'),
+            type: $form.attr('method'),
+            data : data,
+            success: function(html) {
+                // Replace current position field ...
+                $('#annoncebundle_annonce_sousCategorie').replaceWith(
+                    // ... with the returned one from the AJAX response.
+                    $(html).find('#annoncebundle_annonce_sousCategorie')
+                );
+                // Position field now displays the appropriate positions.
+            }
+        });
+    });
+</script>
+
+<script>
+    // This example displays an address form, using the autocomplete feature
+    // of the Google Places API to help users fill in the information.
+
+    var placeSearch, autocomplete;
+    var componentForm = {
+        //street_number: 'short_name',
+        //route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        //postal_code: 'short_name'
+    };
+
+    function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('annoncebundle_annonce_adresseObjetVendu')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    // [START region_fillform]
+    function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+            document.getElementById(component).value = '';
+            document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+            var addressType = place.address_components[i].types[0];
+            if (componentForm[addressType]) {
+                var val = place.address_components[i][componentForm[addressType]];
+                document.getElementById(addressType).value = val;
+            }
+        }
+    }
+    // [END region_fillform]
+
+    // [START region_geolocation]
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var circle = new google.maps.Circle({
+                    center: geolocation,
+                    radius: position.coords.accuracy
+                });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+    // [END region_geolocation]
+
+</script>
+
+{% include '@Annonce/Default/footer.html.twig' %}
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+download_image_button: Download image
+download_video_button: Download video
+download_video_button_loading: Uploading...
+download_video_placeholder: Insert link to YouTube video
+video_edit: Edit
+video_remove: Remove
+
+dropzone_preview_edit: Edit
+dropzone_preview_remove: Remove
+
+uploader_dict_max_files_exceeded: "You can't download files more than"
+uploader_server_error: An error occurred on the server.
+
+splash_screen_name: Name
+splash_screen_description: Description
+splash_screen_media_type: File type
+splash_screen_media_size: File size
+splash_screen_media_width: Width
+splash_screen_height: Height
+splash_screen_save_button: Save
+splash_screen_save_button_loading: 'Saving...'

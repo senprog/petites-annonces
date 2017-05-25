@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Profilannonceurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profilAnnonceur in profilAnnonceurs %}
+            <tr>
+                <td><a href="{{ path('profilannonceur_show', { 'id': profilAnnonceur.id }) }}">{{ profilAnnonceur.id }}</a></td>
+                <td>{{ profilAnnonceur.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('profilannonceur_show', { 'id': profilAnnonceur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('profilannonceur_edit', { 'id': profilAnnonceur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('profilannonceur_new') }}">Create a new profilAnnonceur</a>
+        </li>
+    </ul>
+{% endblock %}

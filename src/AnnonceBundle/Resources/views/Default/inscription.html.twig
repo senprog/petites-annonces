@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{%  form_theme form ':form:fields.html.twig' %}
+
+{% block body %}
+    <!-- signup-page -->
+    <section id="main" class="clearfix user-page">
+        <div class="container">
+            <div class="row text-center">
+                <!-- user-login -->
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <div class="user-account">
+                        <h2>Cr&eacute;er un compte</h2>
+
+                        {{ form_start(form) }}
+
+                        {{ form_row(form.nom, { 'attr': {'placeholder': 'Nom'} }) }}
+                        {{ form_row(form.prenom, { 'attr': {'placeholder': 'Prenom'} }) }}
+                        {{ form_row(form.username, { 'attr': {'placeholder': 'Nom d\'utilisateur'} }) }}
+                        {{ form_row(form.email, { 'attr': {'placeholder': 'Email'} }) }}
+                        {{ form_row(form.telephone, { 'attr': {'placeholder': 'Telephone'} }) }}
+                        {{ form_row(form.password, { 'attr': {'placeholder': 'Mot de passe'} }) }}
+                        {{ form_row(form.pays, { 'attr': {'placeholder': ''} }) }}
+                        {{ form_row(form.ville, { 'attr': {'placeholder': 'Ville'} }) }}
+                        {{ form_row(form.recaptcha) }}
+
+                            <div class="checkbox">
+                                <label class="pull-left checked" for="signing">
+                                    {#{{ form_row(form.termsAccepted) }}#}
+                                    En cliquant sur s'inscrire, vous acceptez nos termes et conditions d'utilisations
+                                </label>
+                            </div>
+                        <!-- checkbox -->
+
+                            <button type="submit" href="#" class="btn">S'inscrire</button>
+
+                       {{ form_end(form) }}
+
+                        <!-- checkbox -->
+
+                    </div>
+                </div><!-- user-login -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- signup-page -->
+{% endblock %}

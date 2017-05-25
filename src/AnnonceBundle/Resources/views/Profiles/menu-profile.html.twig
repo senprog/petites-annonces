@@ -1,0 +1,43 @@
+<div class="ad-profile section">
+    <div class="user-profile">
+        <div class="user-images">
+            <img src="{{ asset('images/user.jpg', 'avatars') }}" alt="Photo de profile" class="img-responsive">
+        </div>
+        <div class="user">
+            <h2>Bonjour, <a href="#">{{ app.user.prenom}} {{ app.user.nom}}</a></h2>
+            <h5>
+                Votre derniere connection le:
+
+                {% if profile.lastLogin|date('H:i:s') != "00:00:00" %}
+                    {{ profile.lastLogin|date('d-m-Y H:i') }} (GMT+1)
+                {% else %}
+                    {# inserer le controller pour faire un update de la date de connexion #}
+                    {{ "now"|date("d-m-Y H:i") }}
+                {% endif %}
+
+            </h5>
+        </div>
+
+        <div class="favorites-user">
+            <div class="my-ads">
+                <a href="my-ads.html">23
+                    <small>Annonce(s)</small>
+                </a>
+            </div>
+            <div class="favorites">
+                <a href="#">18
+                    <small>Favoris</small>
+                </a>
+            </div>
+        </div>
+    </div><!-- user-profile -->
+
+    <ul class="user-menu">
+        <li class="active"><a href="my-profile.html">Profile</a></li>
+        <li><a href="my-ads.html">Mes annonces</a></li>
+        <li><a href="favourite-ads.html">Annonces Favoris</a></li>
+        <li><a href="archived-ads.html">Annonce(s) archiv&eacute;e(s) </a></li>
+        <li><a href="pending-ads.html">En attente</a></li>
+        <li><a href="delete-account.html">Fermer le compte</a></li>
+    </ul>
+</div><!-- ad-profile -->

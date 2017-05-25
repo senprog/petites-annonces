@@ -1,0 +1,20 @@
+services:
+#    annonce.example:
+#        class: AnnonceBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    app.upload_listener:
+        class: AnnonceBundle\EventListener\UploadListener
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: kernel.event_listener, event: oneup_uploader.post_persist.default_uploader, method: onUpload }
+            - { name: kernel.event_listener, event: oneup_uploader.post_persist.default_uploader, method: onPostUpload }
+
+    app.upload_unique_namer:
+        class: AnnonceBundle\Uploader\Naming\UploadUniqueNamer
+        arguments: ["@session"]
+
+    acme_hello.upload_listener:
+        class: AnnonceBundle\EventListener\UploadListener
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: kernel.event_listener, event: oneup_uploader.post_persist, method: onUpload }
