@@ -134,7 +134,7 @@ knp_gaufrette:
     adapters:
         image:
             local:
-                directory: "%kernel.root_dir%/../web/uploads"
+                directory: "%kernel.root_dir%/../web/uploads/photo-annonces"
                 create: true
     filesystems:
         image:
@@ -169,17 +169,17 @@ oneup_uploader:
                 type: gaufrette
                 filesystem: gaufrette.image_filesystem
                 stream_wrapper: gaufrette://image/
-        id:
+        fineuploader:
             frontend:             fineuploader
             custom_frontend:
                 name:                 ~
                 class:                ~
             storage:
                 service:              ~
-                type:                 filesystem
-                filesystem:           ~
+                type:                 gaufrette
+                filesystem:           gaufrette.image_filesystem
                 directory:            ~
-                stream_wrapper:       ~
+                stream_wrapper:       gaufrette://image/
                 sync_buffer_size:     100K
             route_prefix:
             allowed_mimetypes:     []

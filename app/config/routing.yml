@@ -38,10 +38,6 @@ annonce_ville:
     resource: "@AnnonceBundle/Controller/villeController.php"
     type:     annotation
 
-annonce_ajax_photo:
-    resource: "@AnnonceBundle/Controller/uploadPhotoAnnonceController.php"
-    type:     annotation
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

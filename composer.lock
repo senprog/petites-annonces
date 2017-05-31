@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8599bde547929018b1b28403425374b1",
+    "content-hash": "27700dd1bd75217b64b6d88c9285fb69",
     "packages": [
         {
             "name": "atom-php/uploader",

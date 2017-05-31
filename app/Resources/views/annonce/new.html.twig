@@ -44,9 +44,16 @@
     <![endif]-->
     <!-- Template Developed Audry BABELA -->
 
-    <!-- inclusion de dropzone dans le template -->
-    <script src="{{ asset('bundles/annonce/js/dropzone.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('bundles/annonce/js/dropzone.css') }}">
+    <script src="{{ asset('bundles/app/trade-template/js/jquery.min.js') }}"></script>
+
+    <!-- Fine Uploader Gallery CSS file
+    ====================================================================== -->
+    <link href="{{ asset('bundles/annonce/fine-uploader/fine-uploader-gallery.css') }}" rel="stylesheet">
+
+    <!-- Fine Uploader JS file
+    ====================================================================== -->
+    <script src="{{ asset('bundles/annonce/fine-uploader/fine-uploader.js') }}"></script>
+    {#<script src="{{ asset('bundles/annonce/fine-uploader/fine-uploader.core.js') }}"></script>#}
 
 </head>
 <body>
@@ -69,18 +76,18 @@
             </ol><!-- breadcrumb -->
             <h2 class="title">Poster annonce gratuite</h2>
         </div><!-- banner -->
-
         <div class="adpost-details">
             <div class="row">
                 <div class="col-md-8">
 
-                    {{ form_start(form, { 'multipart' : true }) }}
+                    {{ form_start(form, { 'multipart' : true, 'attr': {'class': 'dropzone'} }) }}
                     <fieldset>
                         <div class="section postdetails">
                             <h4>Vendez un bien ou un service<span class="pull-right">* Champs obligatoires</span></h4>
 
                             <div class="row form-group">
-                                <label class="col-sm-3">{{ form_label(form.typeAnnonce) }}<span class="required">*</span></label>
+                                <label class="col-sm-3">{{ form_label(form.typeAnnonce) }}
+                                    <span class="required">*</span></label>
                                 <div class="col-sm-9 user-type">
                                     {{ form_errors(form.typeAnnonce) }}
                                     {{ form_widget(form.typeAnnonce) }}
@@ -88,7 +95,8 @@
                             </div>
 
                             <div class="row form-group add-title">
-                                <label class="col-sm-3 label-title">{{ form_label(form.titre) }}<span class="required">*</span></label>
+                                <label class="col-sm-3 label-title">{{ form_label(form.titre) }}
+                                    <span class="required">*</span></label>
                                 <div class="col-sm-9">
                                     {{ form_errors(form.titre) }}
                                     {{ form_widget(form.titre, { 'attr': {'class': 'form-control'} }) }}
@@ -97,7 +105,8 @@
                             </div>
 
                             <div class="row form-group add-title">
-                                <label class="col-sm-3 label-title">{{ form_label(form.categorie) }}<span class="required">*</span></label>
+                                <label class="col-sm-3 label-title">{{ form_label(form.categorie) }}
+                                    <span class="required">*</span></label>
                                 <div class="col-sm-9">
                                     {{ form_errors(form.categorie) }}
                                     {{ form_widget(form.categorie, { 'attr': {'class': 'form-control'} }) }}
@@ -106,7 +115,8 @@
                             </div>
 
                             <div class="row form-group add-title">
-                                <label class="col-sm-3 label-title">{{ form_label(form.sousCategorie) }}<span class="required">*</span></label>
+                                <label class="col-sm-3 label-title">{{ form_label(form.sousCategorie) }}
+                                    <span class="required">*</span></label>
                                 <div class="col-sm-9">
                                     {{ form_errors(form.sousCategorie) }}
                                     {{ form_widget(form.sousCategorie, { 'attr': {'class': 'form-control'} }) }}
@@ -115,7 +125,8 @@
                             </div>
 
                             <div class="row form-group item-description">
-                                <label class="col-sm-3 label-title">{{ form_label(form.description) }}<span class="required">*</span></label>
+                                <label class="col-sm-3 label-title">{{ form_label(form.description) }}
+                                    <span class="required">*</span></label>
                                 <div class="col-sm-9">
                                     {{ form_errors(form.description) }}
                                     {{ form_widget(form.description) }}
@@ -128,164 +139,247 @@
                             </div>
 
                             <div class="row form-group add-image">
-                                <label class="col-sm-3 label-title">Photos de votre annonce <span>(photo de couverture )</span> </label>
+                                <label class="col-sm-3 label-title">Photos de votre annonce
+                                    <span></span> </label>
                                 <div class="col-sm-9">
                                     <h5>
                                         <i class="fa fa-upload" aria-hidden="true"></i>
-                                        Seleectionnez photos &agrave; uploader / Glissez deposez le fichier <span>
-                                                Vous pouvez télécharger plusieurs images</span>
+                                        Glissez deposez les photos ou images
+                                        <span>Vous pouvez télécharger plusieurs images</span>
                                     </h5>
+
+
+                                    <!-- Fine Uploader Gallery template
+                                    ====================================================================== -->
+                                    <script type="text/template" id="qq-template-gallery">
+                                        <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
+                                            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+                                                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+                                            </div>
+                                            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                                                <span class="qq-upload-drop-area-text-selector"></span>
+                                            </div>
+                                            <div class="qq-upload-button-selector qq-upload-button">
+                                                <div>Upload a file</div>
+                                            </div>
+                                            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+                                            <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite" aria-relevant="additions removals">
+                                                <li>
+                                                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                                                    <div class="qq-progress-bar-container-selector qq-progress-bar-container">
+                                                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                                                    </div>
+                                                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                                                    <div class="qq-thumbnail-wrapper">
+                                                        <img class="qq-thumbnail-selector" qq-max-size="120" qq-server-scale>
+                                                    </div>
+                                                    <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
+                                                    <button type="button" class="qq-upload-retry-selector qq-upload-retry">
+                                                        <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
+                                                        Retry
+                                                    </button>
+
+                                                    <div class="qq-file-info">
+                                                        <div class="qq-file-name">
+                                                            <span class="qq-upload-file-selector qq-upload-file"></span>
+                                                            <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+                                                        </div>
+                                                        <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                                                        <span class="qq-upload-size-selector qq-upload-size"></span>
+                                                        <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
+                                                            <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
+                                                        </button>
+                                                        <button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
+                                                            <span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
+                                                        </button>
+                                                        <button type="button" class="qq-btn qq-upload-continue-selector qq-upload-continue">
+                                                            <span class="qq-btn qq-continue-icon" aria-label="Continue"></span>
+                                                        </button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                            <dialog class="qq-alert-dialog-selector">
+                                                <div class="qq-dialog-message-selector"></div>
+                                                <div class="qq-dialog-buttons">
+                                                    <button type="button" class="qq-cancel-button-selector">Close</button>
+                                                </div>
+                                            </dialog>
+
+                                            <dialog class="qq-confirm-dialog-selector">
+                                                <div class="qq-dialog-message-selector"></div>
+                                                <div class="qq-dialog-buttons">
+                                                    <button type="button" class="qq-cancel-button-selector">No</button>
+                                                    <button type="button" class="qq-ok-button-selector">Yes</button>
+                                                </div>
+                                            </dialog>
+
+                                            <dialog class="qq-prompt-dialog-selector">
+                                                <div class="qq-dialog-message-selector"></div>
+                                                <input type="text">
+                                                <div class="qq-dialog-buttons">
+                                                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                                                    <button type="button" class="qq-ok-button-selector">Ok</button>
+                                                </div>
+                                            </dialog>
+                                        </div>
+                                    </script>
+
+                                    <!-- Fine Uploader DOM Element
+                                    ====================================================================== -->
+                                    <div id="fine-uploader-gallery"></div>
+
+
+
                                     <div class="upload-section">
 
-                                       {# <label class="upload-image" for="upload-image-one">
-                                            {{ form_widget(form.imageFile) }}
-                                        </label>#}
+                                        {#   {{ form_widget(form.photo2) }}
 
-                                        <label class="upload-image" for="upload-image-two">
-                                            {{ form_widget(form.photo2) }}
-                                        </label>
-                                        <label class="upload-image" for="upload-image-three">
-                                            {{ form_widget(form.photo3) }}
-                                        </label>
 
-                                        <label class="upload-image" for="upload-imagefour">
-                                            {{ form_widget(form.photo4) }}
-                                        </label>
+                                        {#  < class="upload-section">
 
-                                    </div>
+                                              <label class="upload-image" for="upload-imagefour">
+                                                  {{ form_widget(form.photo5) }}
+                                              </label>
 
-                                    <div class="upload-section">
+                                              <label class="upload-image" for="upload-imagefour">
+                                                  {{ form_widget(form.photo6) }}
+                                              </label>
 
-                                        <label class="upload-image" for="upload-imagefour">
-                                            {{ form_widget(form.photo5) }}
-                                        </label>
-
-                                        <label class="upload-image" for="upload-imagefour">
-                                            {{ form_widget(form.photo6) }}
-                                        </label>
+                                          </div>#}
 
                                     </div>
-
-                                </div>
-                            </div>
-
-                            <div class="row form-group select-condition">
-                                <label class="col-sm-3">{{ form_label(form.etatArticleAnnonce) }}<span class="required">*</span></label>
-                                <div class="col-sm-9">
-                                    {{ form_errors(form.etatArticleAnnonce) }}
-                                    {{ form_widget(form.etatArticleAnnonce) }}
-                                </div>
-                            </div>
-
-                            <div class="row form-group select-price">
-                                <label class="col-sm-3 label-title">{{ form_label(form.prix) }}<span class="required">*</span></label>
-                                <div class="col-sm-9">
-                                    {{ form_errors(form.prix) }}
-                                    {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }}
-                                    <label for="negotiable">
-                                        {{ form_widget(form.typePrix, { 'attr': {'class': 'form-control'} }) }}
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="row form-group devise">
-
-                                <label class="col-sm-3 label-title">{{ form_label(form.devise) }}<span class="required">*</span></label>
-                                <div class="col-sm-9">
-                                    {{ form_errors(form.devise) }}
-                                    {{ form_widget(form.devise) }}
                                 </div>
 
-                            </div>
-
-
-                        </div><!-- section -->
-
-                        <div class="section seller-info">
-                            <h4>Ville où se trouve l'objet vendu</h4>
-
-                            <div class="row form-group add-title">
-                                <label class="col-sm-4 label-title">{{ form_label(form.adresseObjetVendu) }}<span class="required">*</span></label>
-                                <div class="col-sm-8">
-                                    {{ form_errors(form.adresseObjetVendu) }}
-                                    {{ form_widget(form.adresseObjetVendu, { 'attr': { 'class': 'form-control'} }) }}
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- section -->
-
-                        {% if is_granted('ROLE_USER') %}
-
-                        {% else %}
-                            <div class="section seller-info">
-                                <h4>Seller Information</h4>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 label-title">Condition<span class="required">*</span></label>
+                                <div class="row form-group select-condition">
+                                    <label class="col-sm-3">{{ form_label(form.etatArticleAnnonce) }}
+                                        <span class="required">*</span></label>
                                     <div class="col-sm-9">
-                                        <input type="radio" name="sellerType" value="individual" id="individual">
-                                        <label for="individual">Individual</label>
-                                        <input type="radio" name="sellerType" value="dealer" id="dealer">
-                                        <label for="dealer">Dealer</label>
+                                        {{ form_errors(form.etatArticleAnnonce) }}
+                                        {{ form_widget(form.etatArticleAnnonce) }}
                                     </div>
                                 </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 label-title">Your Name<span class="required">*</span></label>
+
+                                <div class="row form-group select-price">
+                                    <label class="col-sm-3 label-title">{{ form_label(form.prix) }}
+                                        <span class="required">*</span></label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="name" class="form-control" placeholder="ex, Jhon Doe">
+                                        {{ form_errors(form.prix) }}
+                                        {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }}
+                                        <label for="negotiable">
+                                            {{ form_widget(form.typePrix, { 'attr': {'class': 'form-control'} }) }}
+                                        </label>
                                     </div>
                                 </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 label-title">Your Email ID<span class="required">*</span></label>
+
+                                <div class="row form-group devise">
+
+                                    <label class="col-sm-3 label-title">{{ form_label(form.devise) }}
+                                        <span class="required">*</span></label>
                                     <div class="col-sm-9">
-                                        <input type="email" name="email" class="form-control" placeholder="ex, jhondoe@mail.com">
+                                        {{ form_errors(form.devise) }}
+                                        {{ form_widget(form.devise) }}
                                     </div>
+
                                 </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 label-title">Mobile Number<span class="required">*</span></label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="mobileNumber" class="form-control" placeholder="ex, +912457895">
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 label-title">Address</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="address" class="form-control" placeholder="ex, alekdera House, coprotec, usa">
-                                    </div>
-                                </div>
+
+
                             </div><!-- section -->
-                        {% endif %}
 
-                        <div class="section">
-                            <h4>Mettez votre annonce </h4>
-                            <p>Mettez votre annonce en avant en l'affichant sur la premiere page du site. Maximisez vos chances de vente ou d'achat. <a href="#">En savoir plus</a></p>
-                            <ul class="premium-options">
-                                <li class="premium">
-                                    <input type="radio" name="premiumOption" value="day-one" id="day-one">
-                                    <label for="day-one">Regular Ad Per Day</label>
-                                    <span>$20.00</span>
-                                </li>
-                                <li class="premium">
-                                    <input type="radio" name="premiumOption" value="day-two" id="day-two">
-                                    <label for="day-two">Top Ad for 3 days</label>
-                                    <span>$30.00</span>
-                                </li>
-                                <li class="premium">
-                                    <input type="radio" name="premiumOption" value="day-three" id="day-three">
-                                    <label for="day-three">Top Ad for 7 days</label>
-                                    <span>$50.00</span>
-                                </li>
+                            <div class="section seller-info">
+                                <h4>Ville où se trouve l'objet vendu</h4>
 
-                            </ul>
-                        </div><!-- section -->
+                                <div class="row form-group add-title">
+                                    <label class="col-sm-4 label-title">{{ form_label(form.adresseObjetVendu) }}
+                                        <span class="required">*</span></label>
+                                    <div class="col-sm-8">
+                                        {{ form_errors(form.adresseObjetVendu) }}
+                                        {{ form_widget(form.adresseObjetVendu, { 'attr': { 'class': 'form-control'} }) }}
+                                    </div>
+                                </div>
 
-                        <div class="checkbox section agreement">
-                            <label for="send">
-                                <input type="checkbox" name="send" id="send">
-                                Send me Trade Email/SMS Alerts for people looking to buy mobile handsets in www By clicking "Post", you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a> and acknowledge that you are the rightful owner of this item and using Trade to find a genuine buyer.
-                            </label>
-                            <button type="submit" class="btn btn-primary">Poster votre annonce</button>
-                        </div><!-- section -->
+                            </div>
+                            <!-- section -->
+
+                            {% if is_granted('ROLE_USER') %}
+
+                            {% else %}
+                                <div class="section seller-info">
+                                    <h4>Seller Information</h4>
+                                    <div class="row form-group">
+                                        <label class="col-sm-3 label-title">Condition<span class="required">*</span></label>
+                                        <div class="col-sm-9">
+                                            <input type="radio" name="sellerType" value="individual" id="individual">
+                                            <label for="individual">Individual</label>
+                                            <input type="radio" name="sellerType" value="dealer" id="dealer">
+                                            <label for="dealer">Dealer</label>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-3 label-title">Your Name<span class="required">*</span></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="name" class="form-control" placeholder="ex, Jhon Doe">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-3 label-title">Your Email ID<span class="required">*</span></label>
+                                        <div class="col-sm-9">
+                                            <input type="email" name="email" class="form-control" placeholder="ex, jhondoe@mail.com">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-3 label-title">Mobile Number<span class="required">*</span></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="mobileNumber" class="form-control" placeholder="ex, +912457895">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-3 label-title">Address</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="address" class="form-control" placeholder="ex, alekdera House, coprotec, usa">
+                                        </div>
+                                    </div>
+                                </div><!-- section -->
+                            {% endif %}
+
+                            <div class="section">
+                                <h4>Mettez votre annonce </h4>
+                                <p>Mettez votre annonce en avant en l'affichant sur la premiere page du site.
+                                    Maximisez vos chances de vente ou d'achat. <a href="#">En savoir plus</a></p>
+                                <ul class="premium-options">
+                                    <li class="premium">
+                                        <input type="radio" name="premiumOption" value="day-one" id="day-one">
+                                        <label for="day-one">Regular Ad Per Day</label>
+                                        <span>$20.00</span>
+                                    </li>
+                                    <li class="premium">
+                                        <input type="radio" name="premiumOption" value="day-two" id="day-two">
+                                        <label for="day-two">Top Ad for 3 days</label>
+                                        <span>$30.00</span>
+                                    </li>
+                                    <li class="premium">
+                                        <input type="radio" name="premiumOption" value="day-three" id="day-three">
+                                        <label for="day-three">Top Ad for 7 days</label>
+                                        <span>$50.00</span>
+                                    </li>
+
+                                </ul>
+                            </div><!-- section -->
+
+                            <div class="checkbox section agreement">
+                                <label for="send">
+                                    <input type="checkbox" name="send" id="send">
+                                    Send me Trade Email/SMS Alerts for people looking to buy mobile handsets
+                                    in www By clicking "Post", you agree to our <a href="#">Terms of Use</a> and
+                                    <a href="#">Privacy Policy</a>
+                                    and acknowledge that you are the rightful owner of this item and using Trade
+                                    to find a genuine buyer.
+                                </label>
+                                <button type="submit" id="enregister-post" class="btn btn-primary">Poster votre annonce</button>
+                            </div><!-- section -->
 
                     </fieldset>
                     {{ form_end(form) }}
@@ -297,17 +391,20 @@
                 <div class="col-md-4">
                     <div class="section quick-rules">
                         <h4>Quelques règles</h4>
-                        <p class="lead">Poster une annonce sur <a href="#">congo-market.com</a> est gratuit, mais il faut respecter les regles suivantes:</p>
+                        <p class="lead">Poster une annonce sur <a href="#">congo-market.com</a>
+                            est gratuit, mais il faut respecter les regles suivantes:</p>
 
                         <ul>
                             <li>Poster dans la bonne categorie</li>
                             <li>Ne pas reposter la meme annonce plusieurs fois ou dans differentes catégories.</li>
                             <li>Ne pas télécharger des images avec annonce publicitaire</li>
                             <li>Pas d'annonces à caractère sexuel ou pédophile.</li>
-                            <li>Pas de vente d'arme, de drogue ou toutes autres substances interdites dans votre pays de résidence.</li>
+                            <li>Pas de vente d'arme, de drogue ou toutes autres substances
+                                interdites dans votre pays de résidence.</li>
                             <li>Ne pas inserer votre nom ou numéro de téléphone dans le titre ou la description.</li>
                             <li>Rassurer vous que votre poste est dans la bonne catégorie.</li>
-                            <li>Ne pas poster une annonce mensongère dans le but d'arnaquer les internautes. Des poursuites pourront etre lancées contre vous.</li>
+                            <li>Ne pas poster une annonce mensongère dans le but d'arnaquer les internautes.
+                                Des poursuites pourront etre lancées contre vous.</li>
                             <li>Vous etes le(s) seul(s) responsable de vos publication</li>
                         </ul>
                     </div>
@@ -320,8 +417,26 @@
 <!-- footer -->
 
 
-
-<script src="{{ asset('bundles/app/trade-template/js/jquery.min.js') }}"></script>
+<!-- Your code to create an instance of Fine Uploader and bind to the DOM/template
+====================================================================== -->
+<script>
+    var galleryUploader = new qq.FineUploader({
+        element: document.getElementById("fine-uploader-gallery"),
+        template: 'qq-template-gallery',
+        request: {
+            endpoint: '{{ oneup_uploader_endpoint('fineuploader') }}'
+        },
+        thumbnails: {
+            placeholders: {
+                waitingPath: '{{ asset('bundles/annonce/fine-uploader/placeholders/waiting-generic.png') }}',
+                notAvailablePath: '{{ asset('bundles/annonce/fine-uploader/placeholders/not_available-generic.png') }}'
+            }
+        },
+        validation: {
+            allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
+        }
+    });
+</script>
 
 <script>
     var $sport = $('#annoncebundle_annonce_categorie');

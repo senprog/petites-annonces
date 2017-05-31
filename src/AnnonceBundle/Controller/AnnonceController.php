@@ -5,7 +5,8 @@ namespace AnnonceBundle\Controller;
 use AnnonceBundle\Entity\Annonce;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Annonce controller.
@@ -14,6 +15,45 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class AnnonceController extends Controller
 {
+    /**
+     * Lists all annonce entities.
+     *
+     * @Route("/upload-test", name="upload-test")
+     * @Method("GET")
+     */
+    public function uploadtestAction()
+    {
+
+        return $this->render('@Annonce/Annonce/upload.html.twig');
+    }
+
+
+    /**
+     *
+     * @Method({"GET", "POST"})
+     * @Route("/ajax/snippet/image/send", name="ajax_snippet_image_send")
+     */
+    public function ajaxSnippetImageSendAction(Request $request)
+    {
+        $em = $this->container->get("doctrine.orm.default_entity_manager");
+
+        $document = new Document();
+        $media = $request->files->get('file');
+
+        $document->setFile($media);
+        $document->setPath($media->getPathName());
+        $document->setName($media->getClientOriginalName());
+        $document->upload();
+        $em->persist($document);
+        $em->flush();
+
+        //infos sur le document envoyé
+        //var_dump($request->files->get('file'));die;
+        return new JsonResponse(array('success' => true));
+    }
+
+
+
     /**
      * Lists all annonce entities.
      *
@@ -30,6 +70,7 @@ class AnnonceController extends Controller
             'annonces' => $annonces,
         ));
     }
+
 
     /**
      * Creates a new annonce entity.

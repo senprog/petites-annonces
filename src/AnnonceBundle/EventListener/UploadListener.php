@@ -34,7 +34,7 @@ class UploadListener
         $file = $event->getFile();
         $photo = new Photo();
         $photo->setName($file->getName());
-       // $photo->setFile($file->getPathName());
+        //$photo->setFile($file->getPathName());
         $photo->setPath($file->getPathName());
 
         $this->om->persist($photo);
