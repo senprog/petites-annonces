@@ -54,11 +54,11 @@ class AnnonceType extends AbstractType
            /* ->add('imageFile', VichImageType::class, [
                 'required' => false
             ])*/
-            ->add('photo2')
+           /* ->add('photo2')
             ->add('photo3')
             ->add('photo4')
             ->add('photo5')
-            ->add('photo6')
+            ->add('photo6')*/
             ->add('devise', EntityType::class, array(
                 'class' => 'AnnonceBundle\Entity\devise',
                 'multiple' => false,
