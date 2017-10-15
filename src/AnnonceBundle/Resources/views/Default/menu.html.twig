@@ -1,0 +1,82 @@
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- navbar-header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('accueil') }}">
+                <img class="img-responsive" src="{{ asset('images/logo.png', 'avatars') }}" alt="logo" title="Site de petites
+annonces gratuites pour Congo Brazzaville et Kinshasa">
+            </a>
+        </div>
+        <!-- /navbar-header -->
+
+        <div class="navbar-left" style="padding-top: 25px;">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ path('accueil')}}">Accueil</a></li>
+                    <li><a href="{{ path('annonce_index') }}">Annonces</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="{{ path('faq') }}">Aide</a></li>
+                    <li><a href="{{ path('formulaire_contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- nav-right -->
+        <div class="nav-right" style="padding-top: 25px;">
+            <!-- language-dropdown -->
+            <div class="dropdown language-dropdown">
+                <i class="fa fa-globe"></i>
+                <a data-toggle="dropdown" href="#">
+                    <span class="change-text">Langue (fr)</span>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu language-change">
+                    <li><a href="{{ path('setlocale', { 'language': 'fr' }) }}">Français</a></li>
+                    <li><a href="{{ path('setlocale', { 'language': 'en' }) }}">Anglais</a></li>
+                </ul>
+            </div><!-- language-dropdown -->
+
+            <!-- sign-in -->
+            {%  if is_granted('ROLE_USER') %}
+
+                <div class="dropdown language-dropdown">
+                    <i class="fa fa-user"></i>
+                    <a data-toggle="dropdown" href="#">
+                        <span class="change-text">{{ app.user.prenom}} - {{ app.user.nom}}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu ">
+                        <li><a href="{{ path('user_profile') }}"><i class="fa fa-user"></i> Mon profile</a></li>
+                        <li><a href="#"><i class="fa fa-folder"></i> Mes annonces</a></li>
+                        <li><a href="#"><i class="fa fa-archive"></i> Annonces archivées</a></li>
+                        <li>
+                            <a href="{{ path('logout') }}">
+                                <i class="fa fa-sign-out"></i> D&eacute;connection
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            {% else %}
+                <ul class="sign-in">
+                    <li><i class="fa fa-user"></i></li>
+                    <li><a href="{{ path('connexion') }}">Connexion</a></li>
+                    <li><a href="{{ path('user_inscription') }}">S'inscrire</a></li>
+                </ul>
+            {% endif %}
+            <!-- sign-in -->
+
+            <a href="{{ path('annonce_new') }}" class="btn">{{ 'agents.new.posterannonce'|trans({}, 'agents') }}</a>
+        </div>
+        <!-- nav-right -->
+    </div><!-- container -->
+</nav><!-- navbar -->

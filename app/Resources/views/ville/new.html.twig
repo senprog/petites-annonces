@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!-- main -->
+    <section id="main" class="clearfix published-page">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="congratulations">
+                        <h1>Ville creation</h1>
+
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <input type="submit" value="Create" />
+                        {{ form_end(form) }}
+
+                        <ul>
+                            <li>
+                                <a href="{{ path('ville_index') }}">Back to the list</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </section><!-- main -->
+
+
+
+{% endblock %}

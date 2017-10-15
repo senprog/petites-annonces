@@ -1,0 +1,896 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Audry BABELA">
+        <meta name="description" content="">
+
+        <title>
+            {% block title %}
+            Annonces gratuites | World's Largest Classifieds Portal
+            {% endblock %}
+        </title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/icofont.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/slidr.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css', 'avatars') }}">
+        <link id="preset" rel="stylesheet" href="{{ asset('css/presets/preset1.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/responsive.css', 'avatars') }}">
+
+        <!-- font -->
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,300,600,700' rel='stylesheet'
+              type='text/css'>
+
+        <!-- icons -->
+        <link rel="icon" href="images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/ico/apple-touch-icon-144-precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/ico/apple-touch-icon-114-precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('images/ico/apple-touch-icon-72-precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('images/ico/apple-touch-icon-57-precomposed.png', 'avatars') }}">
+        <!-- icons -->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Template Developed By ThemeRegion -->
+    </head>
+    <body>
+    <!-- header -->
+    <header id="header" class="clearfix">
+        <!-- navbar -->
+       {% include '@Annonce/Default/menu.html.twig' %}
+    </header><!-- header -->
+
+    <!-- main -->
+    <section id="main" class="clearfix category-page main-categories">
+        <div class="container">
+
+
+            {% block breadcrumb %}
+            <div class="breadcrumb-section">
+                <!-- breadcrumb -->
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li>Annonces</li>
+                    </ol>
+                <!-- breadcrumb -->
+                <h2 class="title">Toutes les annonces</h2>
+            </div>
+            {% endblock %}
+
+
+            <div class="banner">
+                <!-- banner-form -->
+
+                {% include '@Annonce/Default/recherche.html.twig' %}
+
+                <!-- banner-form -->
+            </div>
+
+            <div class="category-info">
+                <div class="row">
+                    <!-- accordion-->
+                    <div class="col-md-3 col-sm-4">
+
+                        {% block menu_gauche %}
+                            <div class="accordion">
+                            <!-- panel-group -->
+                            <div class="panel-group" id="accordion">
+
+                                <!-- panel -->
+                                <div class="panel-default panel-faq">
+                                    <!-- panel-heading -->
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordion-one">
+                                            <h4 class="panel-title">Toutes Categories<span class="pull-right"><i
+                                                            class="fa fa-minus"></i></span></h4>
+                                        </a>
+                                    </div><!-- panel-heading -->
+
+                                    <div id="accordion-one" class="panel-collapse collapse in">
+                                        <!-- panel-body -->
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li><a href="categories.html"><i class="icofont icofont-laptop-alt"></i>Electronics
+                                                        & Gedget<span>(1029)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-police-car-alt-2"></i>Cars &
+                                                        Vehicles<span>(1228)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-building-alt"></i>Property<span>(178)</span></a>
+                                                </li>
+                                                <li><a href="#"><i class="icofont icofont-ui-home"></i>Home & Garden<span>(7163)</span></a>
+                                                </li>
+                                                <li><a href="#"><i class="icofont icofont-animal-dog"></i>Pets &
+                                                        Animals<span>(8709)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-nurse"></i>Health & Beauty<span>(3129)</span></a>
+                                                </li>
+                                                <li><a href="#"><i class="icofont icofont-hockey"></i>Hobby, Sport &
+                                                        Kids<span>(2019)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-burger"></i>Food &
+                                                        Agriculture<span>(323)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-girl-alt"></i>Women &
+                                                        Children<span>(425)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-gift"></i>Gift &
+                                                        Presentation<span>(3223)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-architecture-alt"></i>Office
+                                                        Product<span>(3283)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-animal-cat-alt-1"></i>Arts, Crafts
+                                                        & Sewing<span>(3221)</span></a></li>
+                                                <li><a href="#"><i class="icofont icofont-abc"></i>Others<span>(3129)</span></a>
+                                                </li>
+                                                <li><a href="#"><i class="icofont icofont-social-prestashop"></i>Test<span>(3129)</span></a>
+                                                </li>
+                                            </ul>
+                                        </div><!-- panel-body -->
+                                    </div>
+                                </div><!-- panel -->
+
+                                <!-- panel -->
+                                <div class="panel-default panel-faq">
+                                    <!-- panel-heading -->
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordion-two">
+                                            <h4 class="panel-title">Condition<span class="pull-right"><i
+                                                            class="fa fa-plus"></i></span></h4>
+                                        </a>
+                                    </div><!-- panel-heading -->
+
+                                    <div id="accordion-two" class="panel-collapse collapse">
+                                        <!-- panel-body -->
+                                        <div class="panel-body">
+                                            <label for="new"><input type="checkbox" name="new" id="new"> New</label>
+                                            <label for="used"><input type="checkbox" name="used" id="used"> Used</label>
+                                        </div><!-- panel-body -->
+                                    </div>
+                                </div><!-- panel -->
+
+                                <!-- panel -->
+                                <div class="panel-default panel-faq">
+                                    <!-- panel-heading -->
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordion-three">
+                                            <h4 class="panel-title">
+                                                Price
+                                                <span class="pull-right"><i class="fa fa-plus"></i></span>
+                                            </h4>
+                                        </a>
+                                    </div><!-- panel-heading -->
+
+                                    <div id="accordion-three" class="panel-collapse collapse">
+                                        <!-- panel-body -->
+                                        <div class="panel-body">
+                                            <div class="price-range"><!--price-range-->
+                                                <div class="price">
+                                                    <span>$100 - <strong>$700</strong></span>
+                                                    <div class="dropdown category-dropdown pull-right">
+                                                        <a data-toggle="dropdown" href="#"><span
+                                                                    class="change-text">USD</span><i
+                                                                    class="fa fa-caret-square-o-down"></i></a>
+                                                        <ul class="dropdown-menu category-change">
+                                                            <li><a href="#">$05</a></li>
+                                                            <li><a href="#">$10</a></li>
+                                                            <li><a href="#">$15</a></li>
+                                                            <li><a href="#">$20</a></li>
+                                                            <li><a href="#">$25</a></li>
+                                                        </ul>
+                                                    </div><!-- category-change -->
+                                                    <input type="text" value="" data-slider-min="0" data-slider-max="700"
+                                                           data-slider-step="5" data-slider-value="[250,450]"
+                                                           id="price"><br/>
+                                                </div>
+                                            </div><!--/price-range-->
+                                        </div><!-- panel-body -->
+                                    </div>
+                                </div><!-- panel -->
+
+                                <!-- panel -->
+                                <div class="panel-default panel-faq">
+                                    <!-- panel-heading -->
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordion-four">
+                                            <h4 class="panel-title">
+                                                Posted By
+                                                <span class="pull-right"><i class="fa fa-plus"></i></span>
+                                            </h4>
+                                        </a>
+                                    </div><!-- panel-heading -->
+
+                                    <div id="accordion-four" class="panel-collapse collapse">
+                                        <!-- panel-body -->
+                                        <div class="panel-body">
+                                            <label for="individual"><input type="checkbox" name="individual"
+                                                                           id="individual"> Individual</label>
+                                            <label for="dealer"><input type="checkbox" name="dealer" id="dealer">
+                                                Dealer</label>
+                                            <label for="reseller"><input type="checkbox" name="reseller" id="reseller">
+                                                Reseller</label>
+                                            <label for="manufacturer"><input type="checkbox" name="manufacturer"
+                                                                             id="manufacturer"> Manufacturer</label>
+                                        </div><!-- panel-body -->
+                                    </div>
+                                </div><!-- panel -->
+
+                                <!-- panel -->
+                                <div class="panel-default panel-faq">
+                                    <!-- panel-heading -->
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordion-five">
+                                            <h4 class="panel-title">
+                                                Brand
+                                                <span class="pull-right"><i class="fa fa-plus"></i></span>
+                                            </h4>
+                                        </a>
+                                    </div><!-- panel-heading -->
+
+                                    <div id="accordion-five" class="panel-collapse collapse">
+                                        <!-- panel-body -->
+                                        <div class="panel-body">
+                                            <input type="text" placeholder="Search Brand" class="form-control">
+                                            <label for="apple"><input type="checkbox" name="apple" id="apple"> Apple</label>
+                                            <label for="htc"><input type="checkbox" name="htc" id="htc"> HTC</label>
+                                            <label for="micromax"><input type="checkbox" name="micromax" id="micromax">
+                                                Micromax</label>
+                                            <label for="nokia"><input type="checkbox" name="nokia" id="nokia"> Nokia</label>
+                                            <label for="others"><input type="checkbox" name="others" id="others">
+                                                Others</label>
+                                            <label for="samsung"><input type="checkbox" name="samsung" id="samsung"> Samsung</label>
+                                            <span class="border"></span>
+                                            <label for="acer"><input type="checkbox" name="acer" id="acer"> Acer</label>
+                                            <label for="bird"><input type="checkbox" name="bird" id="bird"> Bird</label>
+                                            <label for="blackberry"><input type="checkbox" name="blackberry"
+                                                                           id="blackberry"> Blackberry</label>
+                                            <label for="celkon"><input type="checkbox" name="celkon" id="celkon">
+                                                Celkon</label>
+                                            <label for="ericsson"><input type="checkbox" name="ericsson" id="ericsson">
+                                                Ericsson</label>
+                                            <label for="fly"><input type="checkbox" name="fly" id="fly"> Fly</label>
+                                            <label for="g-fone"><input type="checkbox" name="g-fone" id="g-fone">
+                                                g-Fone</label>
+                                            <label for="gionee"><input type="checkbox" name="gionee" id="gionee">
+                                                Gionee</label>
+                                            <label for="haier"><input type="checkbox" name="haier" id="haier"> Haier</label>
+                                            <label for="hp"><input type="checkbox" name="hp" id="hp"> HP</label>
+
+                                        </div><!-- panel-body -->
+                                    </div>
+                                </div> <!-- panel -->
+                            </div><!-- panel-group -->
+                        </div>
+                        {% endblock %}
+
+                    </div>
+                    <!-- accordion-->
+
+                    <!-- recommended-ads -->
+                    <div class="col-sm-8 col-md-7">
+                        <div class="section recommended-ads">
+                            <!-- featured-top -->
+                            <div class="featured-top">
+                                <h4>Recommended Ads for You</h4>
+                                <div class="dropdown pull-right">
+
+                                    <!-- category-change -->
+                                    <div class="dropdown category-dropdown">
+                                        <h5>Sort by:</h5>
+                                        <a data-toggle="dropdown" href="#"><span class="change-text">Popular</span><i
+                                                    class="fa fa-caret-square-o-down"></i></a>
+                                        <ul class="dropdown-menu category-change">
+                                            <li><a href="#">Featured</a></li>
+                                            <li><a href="#">Newest</a></li>
+                                            <li><a href="#">All</a></li>
+                                            <li><a href="#">Bestselling</a></li>
+                                        </ul>
+                                    </div><!-- category-change -->
+                                </div>
+                            </div><!-- featured-top -->
+
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <!-- item-image -->
+                                <div class="item-image-box col-sm-4">
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/1.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div>
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$800.00</h3>
+                                        <h4 class="item-title"><a href="#">Apple TV - Everything you need to know!</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Tv & Video</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> New</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a class="online" href="#" data-toggle="tooltip" data-placement="top"
+                                               title="Individual"><i class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/trending/2.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                        <span class="featured-ad">Featured</span>
+                                        <a href="#" class="verified" data-toggle="tooltip" data-placement="left"
+                                           title="Verified"><i class="fa fa-check-square-o"></i></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$250.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Bark Furniture, Handmade Bespoke Furniture</a>
+                                        </h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Home Appliances</a></span> /
+                                            <span><a href="#">Sofa</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a class="online" href="#" data-toggle="tooltip" data-placement="top"
+                                               title="Dealer"><i class="fa fa-suitcase"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/trending/3.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Samsung Galaxy S6 Edge</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/trending/4.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                        <span class="featured-ad">Featured</span>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$800.00</h3>
+                                        <h4 class="item-title"><a href="#">Rick Morton- Magicius Chase</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Books & Magazines</a></span> /
+                                            <span><a href="#">Story book</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/5.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Samsung Slim NoteBook</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/6.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                        <span class="featured-ad">Featured</span>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Samsung Galaxy S6 Edge</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/7.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Philips Streo Headphone</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/8.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                        <span class="featured-ad">Featured</span>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$800.00</h3>
+                                        <h4 class="item-title"><a href="#">Rick Morton- Magicius Chase</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Books & Magazines</a></span> /
+                                            <span><a href="#">Story book</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+
+                            <!-- ad-section -->
+                            <div class="ad-section text-center">
+                                <a href="#"><img src="{{ asset('images/ads/3.jpg', 'avatars') }}" alt="Image" class="img-responsive"></a>
+                            </div><!-- ad-section -->
+
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/9.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Nikon Disital Camera</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/10.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Samsung Galaxy S6 Edge</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/11.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Samsung Mega Monitor</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/12.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$800.00</h3>
+                                        <h4 class="item-title"><a href="#">Cannon Disital Camera</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Camera & Magazines</a></span> /
+                                            <span><a href="#">Story book</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/13.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Samsung Smart Watch</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+                            <!-- ad-item -->
+                            <div class="ad-item row">
+                                <div class="item-image-box col-sm-4">
+                                    <!-- item-image -->
+                                    <div class="item-image">
+                                        <a href="details.html"><img src="{{ asset('images/listing/14.jpg', 'avatars') }}" alt="Image"
+                                                                    class="img-responsive"></a>
+                                    </div><!-- item-image -->
+                                </div><!-- item-image-box -->
+
+                                <!-- rending-text -->
+                                <div class="item-info col-sm-8">
+                                    <!-- ad-info -->
+                                    <div class="ad-info">
+                                        <h3 class="item-price">$890.00 <span>(Negotiable)</span></h3>
+                                        <h4 class="item-title"><a href="#">Accer Thinest Laptop</a></h4>
+                                        <div class="item-cat">
+                                            <span><a href="#">Electronics & Gedgets</a></span> /
+                                            <span><a href="#">Mobile Phone</a></span>
+                                        </div>
+                                    </div><!-- ad-info -->
+
+                                    <!-- ad-meta -->
+                                    <div class="ad-meta">
+                                        <div class="meta-content">
+                                            <span class="dated"><a href="#">7 Jan, 16  10:10 pm </a></span>
+                                            <a href="#" class="tag"><i class="fa fa-tags"></i> Used</a>
+                                        </div>
+                                        <!-- item-info-right -->
+                                        <div class="user-option pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i
+                                                        class="fa fa-map-marker"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i
+                                                        class="fa fa-user"></i> </a>
+                                        </div><!-- item-info-right -->
+                                    </div><!-- ad-meta -->
+                                </div><!-- item-info -->
+                            </div><!-- ad-item -->
+
+                            <!-- pagination  -->
+                            <div class="text-center">
+                                <ul class="pagination ">
+                                    <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li class="active"><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">...</a></li>
+                                    <li><a href="#">10</a></li>
+                                    <li><a href="#">20</a></li>
+                                    <li><a href="#">30</a></li>
+                                    <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                                </ul>
+                            </div><!-- pagination  -->
+                        </div>
+                    </div><!-- recommended-ads -->
+
+                    <div class="col-md-2 hidden-xs hidden-sm">
+                        <div class="advertisement text-center">
+                            <a href="#"><img src="{{ asset('images/ads/2.jpg', 'avatars') }}" alt="" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- container -->
+    </section><!-- main -->
+
+
+    <section id="something-sell" class="clearfix parallax-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2 class="title">Do you have something-sell?</h2>
+                    <h4>Post your ad for free on Trade.com</h4>
+                    <a href="ad-post.html" class="btn btn-primary">Post Your Ad</a>
+                </div>
+            </div><!-- row -->
+        </div><!-- contaioner -->
+    </section><!-- something-sell -->
+
+    <!-- footer -->
+
+    {% include '@Annonce/Default/footer.html.twig' %}
+
+
+    </body>
+    </html>

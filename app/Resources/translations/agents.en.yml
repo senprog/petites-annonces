@@ -1,0 +1,30 @@
+agents:
+    new:
+        accueil: Home
+        poster: Post new ads
+        posterannonce: Post ads
+        titre: Selling a good or service
+        obligatoire: Required fields
+        succes: Ad successfully published
+
+    formulaire:
+        type.annonce: Ad Type
+        titre: Title
+        titre.example:  Playstation 3...
+        categorie: Category
+        souscategorie: Sub-category
+        description: Description
+        devise: currency
+        etat: Etat
+        prix: Price
+        typeprix: Type of price
+        negociable: Negotiable
+        nonnegociable: Not negotiable
+        lieu: City where the object is located
+        adresse: Address object sold
+        placeholder:
+            titre: title
+            categorie: Select a category
+            description: Write the object
+            prix: Example 1 500
+            ville: city

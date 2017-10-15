@@ -1,0 +1,30 @@
+agents:
+    new:
+        accueil: Accueil
+        poster: Poster annonce gratuite
+        posterannonce: Poster annonce
+        titre: Vendez un bien ou un service
+        obligatoire: Champs obligatoires
+        succes: Annonce publiée avec succès
+
+    formulaire:
+        type.annonce: Type annonce
+        titre: Titre
+        titre.example:  Playstation 3...
+        categorie: Categorie
+        souscategorie: Sous categorie
+        description: Description
+        devise: Devise
+        etat: Etat
+        prix: Prix
+        typeprix: Type de prix
+        negociable: Negociable
+        nonnegociable: Non negociable
+        lieu: Ville ou se trouve l'objet
+        adresse: Adresse objet vendu
+        placeholder:
+            titre: titre
+            categorie: selectionnez une categorie
+            description: Decrivez l'objet
+            prix: Example 1 500
+            ville: ville

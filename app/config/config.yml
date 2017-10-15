@@ -1,0 +1,288 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: "@AnnonceBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: fr
+
+framework:
+    ide: 'phpstorm://open?file=%%f&line=%%l'
+    #esi:             ~
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets:
+        base_path: ~
+        packages:
+            avatars:
+                base_path: /bundles/annonce/trade-template
+
+    php_errors:
+        log: true
+
+    # profiler configuration
+    profiler:
+        enabled: false
+        collect: true
+        only_exceptions: false
+        only_master_requests: false
+        dsn: file:%kernel.cache_dir%/profiler
+        matcher:
+            #ip: ~
+            # use the urldecoded format
+            path: ~ # Example: ^/path to resource/
+            service: ~
+    # serializer configuration
+    serializer:
+        enabled: false
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    form_themes:
+        # other form themes
+        - 'VichUploaderBundle:Form:fields.html.twig'
+
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/../var/data/data.sqlite"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #path:     "%database_path%"
+        types:
+            json: Doctrine\DBAL\Types\JsonArrayType
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+#        entity_managers:
+#            default:
+#                mappings:
+#                    SonataMediaBundle: ~
+
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    port: 25
+    encryption: ~
+    auth_mode: ~
+    spool:
+        type: file
+        path: '%kernel.cache_dir%/swiftmailer/spool'
+    sender_address: "contact@congo-market.com"
+    antiflood:
+        threshold: 99
+        sleep: 0
+    delivery_addresses: []
+    disable_delivery: ~
+    logging: '%kernel.debug%'
+
+# app/config/config.yml
+#fos_user:
+#    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+#    firewall_name: main
+#    user_class: AppBundle\Entity\User
+#    from_email:
+#        address: "%mailer_user%"
+#        sender_name: "%mailer_user%"
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+
+knp_gaufrette:
+    stream_wrapper: ~
+    adapters:
+        image:
+            local:
+                directory: "%kernel.root_dir%/../web/uploads/photo-annonces"
+                create: true
+    filesystems:
+        image:
+            adapter: image
+            alias: image_filesystem
+
+oneup_uploader:
+    chunks:
+        maxage:               604800
+        storage:
+            type:               filesystem
+            directory:          ~
+            filesystem:         ~
+            sync_buffer_size:   100K
+            stream_wrapper:     ~
+            prefix:             'chunks'
+        load_distribution:    true
+    orphanage:
+        maxage:               604800
+        directory:            %kernel.cache_dir%/uploader/orphanage
+    twig:                 true
+    mappings:
+        medias:
+            namer:  donjohn.oneup_uploader.namer.original
+            use_orphanage: true
+            frontend: fineuploader # or any uploader you use in the frontend
+            storage:
+                type: gaufrette
+                filesystem: gaufrette.image_filesystem
+                stream_wrapper: gaufrette://image/
+        gallery:
+            frontend: dropzone  # or any uploader you use in the frontend: blueimp
+            enable_progress: true
+            enable_cancelation: true
+            #namer: app.upload_unique_namer
+            use_orphanage: false
+            allowed_mimetypes: [image/png, image/jpg, image/jpeg, image/gif]
+            max_size: 200M
+            storage:
+                type: gaufrette
+                filesystem: gaufrette.image_filesystem
+                stream_wrapper: gaufrette://image/
+        jquery:
+            frontend: blueimp  # or any uploader you use in the frontend: blueimp
+            namer: app.upload_my_namer #app.upload_unique_namer
+            allowed_mimetypes: [image/png, image/jpg, image/jpeg, image/gif]
+            max_size: 200M
+            storage:
+                type: gaufrette
+                filesystem: gaufrette.image_filesystem
+                stream_wrapper: gaufrette://image/
+        fineuploader:
+            frontend:             fineuploader
+#            namer: app.upload_my_namer
+            custom_frontend:
+                name:                 ~
+                class:                ~
+            storage:
+                service:              ~
+                type:                 gaufrette
+                filesystem:           gaufrette.image_filesystem
+                directory:            ~
+                stream_wrapper:       gaufrette://image/
+                sync_buffer_size:     100K
+            route_prefix:
+            allowed_mimetypes:     []
+            disallowed_mimetypes:  []
+            error_handler:        oneup_uploader.error_handler.noop
+            root_folder:          false
+
+            # Set max_size to -1 for gracefully downgrade this number to the systems max upload size.
+            max_size:             9223372036854775807
+            use_orphanage:        false
+            enable_progress:      true
+            enable_cancelation:   false
+            namer:                oneup_uploader.namer.uniqid
+
+liip_imagine:
+    loaders:
+        stream.image_filesystem:
+            stream:
+                wrapper: gaufrette://image/
+    filter_sets:
+        full:
+            quality: 100
+        thumbnail:
+            quality: 75
+            filters:
+                auto_rotate: ~
+                thumbnail: { size: [120, 120], mode: outbound }
+        image_upload_thumbnail:
+            data_loader: cm_media_doctrine_phpcr
+            filters:
+                thumbnail: { size: [100, 100], mode: outbound }
+        original: ~
+        thumb_from_original:
+            data_loader: stream.image_filesystem
+            quality: 75
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }
+
+
+ewz_recaptcha:
+    public_key:  6LcCPRkUAAAAAGxSQAnHE1aVnWjumUu8Wk78fQGx
+    private_key: 6LcCPRkUAAAAAJyPBzWhifLcKl8txSEGxO0n9493
+    # Not needed as "%kernel.default_locale%" is the default value for the locale key
+    locale_key:  %kernel.default_locale%
+    #enabled: false
+
+vich_uploader:
+    db_driver: orm # or mongodb or propel or phpcr
+
+    mappings:
+        product_image:
+            uri_prefix:         /images/annonces
+            upload_destination: '%kernel.root_dir%/../web/images/annonces'
+
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+
+#lch_media:
+#    types:
+#        image:
+#            name:             'your_project.image.name' # the translated name for front presentation
+#            entity:           'YourBundle\Entity\Media\Image' # the entity to be used
+#            form:             'YourBundle\Form\Media\ImageType' # the form to be used when adding media
+#            add_view:         'YourBundle/Media/Image/fragments:add.html.twig' # the add form view to be used when adding media
+#            thumbnail_view:   'YourBundle/Media/Resource/fragments:thumbnail.html.twig' # the view used for displaying thumbnail
+#            list_item_view:   'YourBundle/Media/Resource/fragments:list.item.html.twig' # the view used for displaying list item in selection lists
+#            extensions:       ['jpg', 'jpeg', 'png', 'gif'] # allowed extensions
+#            thumbnail_sizes:
+#                news:
+#                    width: 396
+#                    height: 227
+
+donjohn_media:
+    upload_folder: /media
+    entity: AnnonceBundle\Entity\Photo
+
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles: [AnnonceBundle, AppBundle, UserBundle]
+        directories: ["%kernel.root_dir%/../src"]
+    automatic_controller_injections:
+        properties:
+            request: "@request"
+            router: "@router"

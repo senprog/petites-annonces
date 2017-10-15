@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Souscategorieannonces list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomsouscategorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sousCategorieAnnonce in sousCategorieAnnonces %}
+            <tr>
+                <td><a href="{{ path('souscategorieannonce_show', { 'id': sousCategorieAnnonce.id }) }}">{{ sousCategorieAnnonce.id }}</a></td>
+                <td>{{ sousCategorieAnnonce.nomSousCategorie }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('souscategorieannonce_show', { 'id': sousCategorieAnnonce.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('souscategorieannonce_edit', { 'id': sousCategorieAnnonce.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('souscategorieannonce_new') }}">Create a new sousCategorieAnnonce</a>
+        </li>
+    </ul>
+{% endblock %}

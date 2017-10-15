@@ -1,0 +1,40 @@
+{
+    "name" : "donjohn/media-bundle",
+    "type": "symfony-bundle",
+    "description": "a simple media bundle inspired by sonata media bundle",
+    "keywords": ["media", "symfony"],
+    "homepage": "https://github.com/Donjohn/MediaBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Donjohn",
+            "email": "donjohn.geekzone@gmail.com",
+            "role": "Developer"
+        }
+    ],
+	"prefer-stable": true,
+    "require" : {
+        "php": ">=5.5.9",
+        "symfony/symfony": "^3.0",
+        "doctrine/orm": "^2.5",
+        "doctrine/doctrine-bundle": "^1.6",
+        "liip/imagine-bundle": "^1.7",
+        "twig/extensions": "^1.4",
+        "knplabs/gaufrette": "^0.2.1",
+        "knplabs/doctrine-behaviors": "^1.4",
+        "knplabs/knp-gaufrette-bundle": "^0.4.0",
+        "white-october/pagerfanta-bundle": "^1.0"
+
+    },
+    "suggest": {
+        "api-platform/core": "for API feature",
+        "nelmio/api-doc-bundle": "for the API doc",
+        "oneup/uploader-bundle": "for the awesome upload big files features"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Donjohn\\MediaBundle" : ""
+        }
+    },
+    "target-dir" : "Donjohn/MediaBundle"
+}

@@ -1,0 +1,82 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        {% block meta %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Theme Region">
+        <meta name="description" content="">
+        {% endblock %}
+
+        <title>
+            {% block title %}CONGO-MARKET | Portail de petites annonces gratuites du Congo Brazzaville et kinshasa {% endblock %}
+        </title>
+
+        {% block css %}
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/icofont.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/slidr.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css', 'avatars') }}">
+        <link id="preset" rel="stylesheet" href="{{ asset('css/presets/preset1.css', 'avatars') }}">
+        <link rel="stylesheet" href="{{ asset('css/responsive.css', 'avatars') }}">
+
+
+        <!-- font -->
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,300,600,700' rel='stylesheet' type='text/css'>
+
+        <!-- icons -->
+            <link rel="icon" href="{{ asset('favicon.ico') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/ico/apple-touch-icon-144-precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/ico/apple-touch-icon-114-precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="{{ asset('images/ico/apple-touch-icon-72--precomposed.png', 'avatars') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="57x57"   href="{{ asset('images/ico/apple-touch-icon-57-precomposed.png', 'avatars') }}">
+        <!-- icons -->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        {% endblock %}
+        <!-- Template Developed By SENPROG -->
+    </head>
+    <body>
+    <!-- header -->
+    <header id="header" class="clearfix">
+        <!-- navbar -->
+        {% include '@Annonce/Default/menu.html.twig' %}
+        <!-- navbar -->
+    </header><!-- header -->
+
+    {% block body %}
+
+        <!-- main -->
+        <section id="main" class="clearfix published-page">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="congratulations">
+                            <i class="fa fa-check-square-o"></i>
+                            <h2>F&eacute;licitation !</h2>
+                            <h4>Votre annonce a &eacute;t&eacute; publi&eacute;e.</h4>
+                        </div>
+                    </div>
+                </div><!-- row -->
+            </div><!-- container -->
+        </section><!-- main -->
+
+    {% endblock %}
+    <!-- footer -->
+
+{% block footer %}
+    {% include '@Annonce/Default/footer.html.twig' %}
+{% endblock %}
+
+    </body>
+    </html>

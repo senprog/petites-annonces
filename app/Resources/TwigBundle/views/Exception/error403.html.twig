@@ -1,0 +1,21 @@
+
+{% extends '::base.html.twig' %}
+
+    {% block corps %}
+
+        <section id="main" class="clearfix text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="found-section section">
+                            <h1>403</h1>
+                            <h2>Opsss!</h2>
+                            <p>Un probleme est survenue durant le chargement de la page !</p>
+                            <a href="{{ path('accueil') }}" class="btn btn-primary">Retour a l'accueil</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- container -->
+        </section><!-- main -->
+
+    {% endblock %}
