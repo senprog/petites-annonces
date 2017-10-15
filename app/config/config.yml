@@ -158,6 +158,7 @@ oneup_uploader:
         maxage:               604800
         directory:            %kernel.cache_dir%/uploader/orphanage
     twig:                 true
+
     mappings:
         medias:
             namer:  donjohn.oneup_uploader.namer.original
