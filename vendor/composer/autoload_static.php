@@ -74,11 +74,6 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
             'Knp\\DoctrineBehaviors\\' => 22,
             'Knp\\Bundle\\GaufretteBundle\\' => 27,
         ),
-        'J' => 
-        array (
-            'JMS\\DiExtraBundle\\' => 18,
-            'JMS\\AopBundle\\' => 14,
-        ),
         'I' => 
         array (
             'Ivory\\JsonBuilder\\' => 18,
@@ -102,6 +97,7 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\Common\\Inflector\\' => 26,
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
@@ -245,14 +241,6 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-gaufrette-bundle',
         ),
-        'JMS\\DiExtraBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jms/di-extra-bundle',
-        ),
-        'JMS\\AopBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jms/aop-bundle',
-        ),
         'Ivory\\JsonBuilder\\' => 
         array (
             0 => __DIR__ . '/..' . '/egeloen/json-builder/src',
@@ -288,6 +276,10 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
+        ),
+        'Doctrine\\Common\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
         ),
         'Doctrine\\Common\\Cache\\' => 
         array (
@@ -418,10 +410,6 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
             array (
                 0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
             ),
-            'Doctrine\\Common\\Inflector\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
-            ),
             'Doctrine\\Common\\DataFixtures' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/data-fixtures/lib',
@@ -429,13 +417,6 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
-            ),
-        ),
-        'C' => 
-        array (
-            'CG\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/jms/cg/src',
             ),
         ),
         'B' => 

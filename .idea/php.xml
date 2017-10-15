@@ -74,10 +74,7 @@
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
       <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
       <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
-      <path value="$PROJECT_DIR$/vendor/jms/aop-bundle" />
       <path value="$PROJECT_DIR$/vendor/jms/translation-bundle" />
-      <path value="$PROJECT_DIR$/vendor/jms/di-extra-bundle" />
-      <path value="$PROJECT_DIR$/vendor/jms/cg" />
       <path value="$PROJECT_DIR$/vendor/donjohn/media-bundle" />
     </include_path>
   </component>
