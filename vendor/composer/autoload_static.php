@@ -19,6 +19,10 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
     );
 
     public static $prefixLengthsPsr4 = array (
+        'k' => 
+        array (
+            'kartik\\plugins\\fileinput\\' => 25,
+        ),
         'W' => 
         array (
             'WhiteOctober\\PagerfantaBundle\\' => 30,
@@ -74,6 +78,11 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
             'Knp\\DoctrineBehaviors\\' => 22,
             'Knp\\Bundle\\GaufretteBundle\\' => 27,
         ),
+        'J' => 
+        array (
+            'JMS\\DiExtraBundle\\' => 18,
+            'JMS\\AopBundle\\' => 14,
+        ),
         'I' => 
         array (
             'Ivory\\JsonBuilder\\' => 18,
@@ -117,6 +126,10 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
     );
 
     public static $prefixDirsPsr4 = array (
+        'kartik\\plugins\\fileinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
+        ),
         'WhiteOctober\\PagerfantaBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/white-october/pagerfanta-bundle',
@@ -240,6 +253,14 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
         'Knp\\Bundle\\GaufretteBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-gaufrette-bundle',
+        ),
+        'JMS\\DiExtraBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jms/di-extra-bundle',
+        ),
+        'JMS\\AopBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jms/aop-bundle',
         ),
         'Ivory\\JsonBuilder\\' => 
         array (
@@ -417,6 +438,13 @@ class ComposerStaticInit2554ac6f5d571f82debebd2d3d7133d2
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+        ),
+        'C' => 
+        array (
+            'CG\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/cg/src',
             ),
         ),
         'B' => 

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'kartik\\plugins\\fileinput\\' => array($vendorDir . '/kartik-v/bootstrap-fileinput'),
     'WhiteOctober\\PagerfantaBundle\\' => array($vendorDir . '/white-october/pagerfanta-bundle'),
     'Vich\\UploaderBundle\\' => array($vendorDir . '/vich/uploader-bundle'),
     'Twig\\Extensions\\' => array($vendorDir . '/twig/extensions/src'),
@@ -37,6 +38,8 @@ return array(
     'Lch\\MediaBundle\\' => array($vendorDir . '/lch/media-bundle'),
     'Knp\\DoctrineBehaviors\\' => array($vendorDir . '/knplabs/doctrine-behaviors/src'),
     'Knp\\Bundle\\GaufretteBundle\\' => array($vendorDir . '/knplabs/knp-gaufrette-bundle'),
+    'JMS\\DiExtraBundle\\' => array($vendorDir . '/jms/di-extra-bundle'),
+    'JMS\\AopBundle\\' => array($vendorDir . '/jms/aop-bundle'),
     'Ivory\\JsonBuilder\\' => array($vendorDir . '/egeloen/json-builder/src'),
     'Ivory\\CKEditorBundle\\' => array($vendorDir . '/egeloen/ckeditor-bundle'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
