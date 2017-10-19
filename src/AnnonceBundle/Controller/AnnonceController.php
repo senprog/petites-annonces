@@ -60,7 +60,6 @@ class AnnonceController extends Controller
     }
 
 
-
     /**
      * Lists all annonce entities.
      *
