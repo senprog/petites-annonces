@@ -127,11 +127,10 @@ class Annonce
     private $etatArticleAnnonce;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="photo2", type="string", length=255, nullable=true)
+     * @ORM\OneToMany(targetEntity="AnnonceBundle\Entity\Document", mappedBy="annonce")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $photo2;
+    private $document;
 
     /**
      * @var string
@@ -625,30 +624,6 @@ class Annonce
     }
 
     /**
-     * Set photo2
-     *
-     * @param string $photo2
-     *
-     * @return Annonce
-     */
-    public function setPhoto2($photo2)
-    {
-        $this->photo2 = $photo2;
-
-        return $this;
-    }
-
-    /**
-     * Get photo2
-     *
-     * @return string
-     */
-    public function getPhoto2()
-    {
-        return $this->photo2;
-    }
-
-    /**
      * Set photo3
      *
      * @param string $photo3
@@ -866,5 +841,39 @@ class Annonce
     public function getAdresseObjetVendu()
     {
         return $this->adresseObjetVendu;
+    }
+
+    /**
+     * Add document
+     *
+     * @param \AnnonceBundle\Entity\Document $document
+     *
+     * @return Annonce
+     */
+    public function addDocument(\AnnonceBundle\Entity\Document $document)
+    {
+        $this->document[] = $document;
+
+        return $this;
+    }
+
+    /**
+     * Remove document
+     *
+     * @param \AnnonceBundle\Entity\Document $document
+     */
+    public function removeDocument(\AnnonceBundle\Entity\Document $document)
+    {
+        $this->document->removeElement($document);
+    }
+
+    /**
+     * Get document
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDocument()
+    {
+        return $this->document;
     }
 }

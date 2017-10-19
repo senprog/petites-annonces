@@ -66,7 +66,7 @@ class AnnonceType extends AbstractType
            /* ->add('imageFile', VichImageType::class, [
                 'required' => false
             ])*/
-           ->add('photo2', MediaFineUploaderType::class)
+           ->add('document', FileType::class)
            /* ->add('photo3')
              *->add('photo4')
               ->add('photo5')

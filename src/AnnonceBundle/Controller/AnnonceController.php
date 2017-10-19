@@ -3,9 +3,11 @@
 namespace AnnonceBundle\Controller;
 
 use AnnonceBundle\Entity\Annonce;
+use AnnonceBundle\Entity\Document;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Translation\Translator;
@@ -43,7 +45,7 @@ class AnnonceController extends Controller
         $em = $this->container->get("doctrine.orm.default_entity_manager");
 
         $document = new Document();
-        $media = $request->files->get('file');
+        $media = $request->files->get('files');
 
         $document->setFile($media);
         $document->setPath($media->getPathName());
