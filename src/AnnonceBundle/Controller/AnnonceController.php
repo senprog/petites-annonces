@@ -50,6 +50,7 @@ class AnnonceController extends Controller
         $document->setFile($media);
         $document->setPath($media->getPathName());
         $document->setName($media->getClientOriginalName());
+        $document->setDateajout(new \DateTime());
         $document->upload();
         $em->persist($document);
         $em->flush();

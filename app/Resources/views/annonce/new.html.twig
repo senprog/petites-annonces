@@ -90,7 +90,7 @@
     <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
     <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.min.js"></script -->
     <!-- optionally if you need translation for your language then include  locale file as mentioned below -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/locales/LANG.js"></script>
+    <script src="{{ asset('bundles/annonce/bootstrap-fileinput/js/locales/LANG.js') }}"></script>
 
 
 
@@ -395,16 +395,33 @@
             theme: 'fa',
             uploadUrl: "{{path('ajax_snippet_image_send')}}",
 
-            uploadAsync: false,
+            uploadAsync: true,
             showRemove: true,
             showUpload: false,
+            showCaption: true,
+            showCancel: true,
+
+            browseOnZoneClick: true,
+            removeFromPreviewOnError: true,
+
+            previewSettings:     {
+                image: {width: "50px", height: "50px", 'max-width': "100%", 'max-height': "100%"},
+                html: {width: "200px", height: "160px"},
+                text: {width: "200px", height: "160px"},
+                office: {width: "200px", height: "160px"},
+                video: {width: "200px", height: "160px"},
+                audio: {width: "100%", height: "30px"},
+                flash: {width: "200px", height: "160px"},
+                object: {width: "213px", height: "160px"},
+                pdf: {width: "200px", height: "160px"},
+                other: {width: "200px", height: "160px"}
+            },
 
             minFileCount: 1,
-            maxFileCount: 8,
+            maxFileCount: 2,
             maxFileSize: 4000,
             maxFilePreviewSize: 50024,
             maxFileCount: 10,
-            showCaption: true,
 
             allowedFileExtensions: ["jpg", "jpeg", "png", "pdf"],
 
@@ -418,10 +435,8 @@
             uploadClass:   "btn btn-info",
             uploadLabel:   "Telecharger",
             uploadIcon:    "<i class=\"glyphicon glyphicon-upload\"></i> ",
-            uploadExtraData: {
-                img_key: "1000",
-                img_keywords: "happy, places",
-            }
+            msgCancelled: "Annulé",
+            msgPlaceholder: "text"
         }).on('filesorted', function(e, params) {
             console.log('file sorted', e, params);
         }).on('fileuploaded', function(e, params) {
@@ -431,8 +446,6 @@
         });
 
 //    });
-
-
 
 
 
