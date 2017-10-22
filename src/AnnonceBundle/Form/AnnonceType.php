@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -66,11 +67,26 @@ class AnnonceType extends AbstractType
            /* ->add('imageFile', VichImageType::class, [
                 'required' => false
             ])*/
-           ->add('document', FileType::class)
-           /* ->add('photo3')
-             *->add('photo4')
-              ->add('photo5')
-              ->add('photo6')*/
+
+           // TODO: Implementer fonctionnalité de collection d'objet
+
+           ->add('documents', CollectionType::class, array(
+                   'entry_type' => DocumentType::class,
+                   'allow_add' => false,
+                   'allow_delete' => true,
+               )
+               /**
+                * , FileType::class, array(
+               'multiple' => true,
+               'label' => 'Images',
+               'required' => false,
+               'attr' => [
+               'class' => 'files',
+               'data-msg-placeholder' => 'Selectionnez {files} à uploader...'
+               ]
+               )
+                */
+           )
             ->add('devise', EntityType::class, array(
                 'class' => 'AnnonceBundle\Entity\devise',
                 'multiple' => false,

@@ -130,35 +130,7 @@ class Annonce
      * @ORM\OneToMany(targetEntity="AnnonceBundle\Entity\Document", mappedBy="annonce")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $document;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="photo3", type="string", length=255, nullable=true)
-     */
-    private $photo3;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="photo4", type="string", length=255, nullable=true)
-     */
-    private $photo4;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="photo5", type="string", length=255, nullable=true)
-     */
-    private $photo5;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="photo6", type="string", length=255, nullable=true)
-     */
-    private $photo6;
+    private $documents;
 
     /**
      * @var int
@@ -623,78 +595,6 @@ class Annonce
         return $this->anonyme;
     }
 
-    /**
-     * Set photo3
-     *
-     * @param string $photo3
-     *
-     * @return Annonce
-     */
-    public function setPhoto3($photo3)
-    {
-        $this->photo3 = $photo3;
-
-        return $this;
-    }
-
-    /**
-     * Get photo3
-     *
-     * @return string
-     */
-    public function getPhoto3()
-    {
-        return $this->photo3;
-    }
-
-    /**
-     * Set photo4
-     *
-     * @param string $photo4
-     *
-     * @return Annonce
-     */
-    public function setPhoto4($photo4)
-    {
-        $this->photo4 = $photo4;
-
-        return $this;
-    }
-
-    /**
-     * Get photo4
-     *
-     * @return string
-     */
-    public function getPhoto4()
-    {
-        return $this->photo4;
-    }
-
-    /**
-     * Set photo5
-     *
-     * @param string $photo5
-     *
-     * @return Annonce
-     */
-    public function setPhoto5($photo5)
-    {
-        $this->photo5 = $photo5;
-
-        return $this;
-    }
-
-    /**
-     * Get photo5
-     *
-     * @return string
-     */
-    public function getPhoto5()
-    {
-        return $this->photo5;
-    }
-
 
     /**
      * Set devise
@@ -794,31 +694,6 @@ class Annonce
         return $this->ville;
     }
 
-
-    /**
-     * Set photo6
-     *
-     * @param string $photo6
-     *
-     * @return Annonce
-     */
-    public function setPhoto6($photo6)
-    {
-        $this->photo6 = $photo6;
-
-        return $this;
-    }
-
-    /**
-     * Get photo6
-     *
-     * @return string
-     */
-    public function getPhoto6()
-    {
-        return $this->photo6;
-    }
-
     /**
      * Set adresseObjetVendu
      *
@@ -843,6 +718,8 @@ class Annonce
         return $this->adresseObjetVendu;
     }
 
+
+
     /**
      * Add document
      *
@@ -852,7 +729,7 @@ class Annonce
      */
     public function addDocument(\AnnonceBundle\Entity\Document $document)
     {
-        $this->document[] = $document;
+        $this->documents[] = $document;
 
         return $this;
     }
@@ -864,16 +741,16 @@ class Annonce
      */
     public function removeDocument(\AnnonceBundle\Entity\Document $document)
     {
-        $this->document->removeElement($document);
+        $this->documents->removeElement($document);
     }
 
     /**
-     * Get document
+     * Get documents
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getDocument()
+    public function getDocuments()
     {
-        return $this->document;
+        return $this->documents;
     }
 }

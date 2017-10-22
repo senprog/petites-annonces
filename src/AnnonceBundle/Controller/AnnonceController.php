@@ -45,18 +45,29 @@ class AnnonceController extends Controller
         $em = $this->container->get("doctrine.orm.default_entity_manager");
 
         $document = new Document();
-        $media = $request->files->get('files');
+        $media = $request->files->get("annoncebundle_annonce");
 
-        $document->setFile($media);
-        $document->setPath($media->getPathName());
-        $document->setName($media->getClientOriginalName());
+        dump($media['documents']['name']);
+//        exit();
+
+        // recupere l'extension du fichier
+        $extension = $media['documents']['name'][0]->guessExtension();
+
+        if (!$extension) {
+            // extension cannot be guessed
+            $extension = 'bin';
+        }
+        // renommer le fichier original
+        $nomFichier = $document->genereNom(30).'.'.$extension;
+
+        $document->setFile($media['documents']['name'][0]);
+        $document->setPath($document->getUploadPicture());   //$media['documents'][0]->getPathName()
+        $document->setName($nomFichier);
         $document->setDateajout(new \DateTime());
-        $document->upload();
+        $document->upload($nomFichier);
         $em->persist($document);
         $em->flush();
 
-        //infos sur le document envoyé
-        //var_dump($request->files->get('file'));die;
         return new JsonResponse(array('success' => true));
     }
 
@@ -92,10 +103,11 @@ class AnnonceController extends Controller
         $form = $this->createForm('AnnonceBundle\Form\AnnonceType', $annonce);
         $form->handleRequest($request);
 
-
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            dump($annonce);
+            die();
 
             $annonce->setUser($this->getUser());
 

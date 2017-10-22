@@ -66,7 +66,6 @@ class profilAnnonceur
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
         return $this->nom;
     }
 }
