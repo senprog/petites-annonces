@@ -33,7 +33,7 @@ class UploadListener
     {
         $file = $event->getFile();
         $photo = new Photo();
-        $photo->setName($file->getName());
+        $photo->setNom($file->getName());
         //$photo->setFile($file->getPathName());
         $photo->setPaths($file->getPathName());
 

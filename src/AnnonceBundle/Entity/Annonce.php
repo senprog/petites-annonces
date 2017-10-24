@@ -129,7 +129,7 @@ class Annonce
     private $etatArticleAnnonce;
 
     /**
-     * @ORM\OneToMany(targetEntity="AnnonceBundle\Entity\Document", mappedBy="annonce")
+     * @ORM\OneToMany(targetEntity="AnnonceBundle\Entity\Document", mappedBy="annonce", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $documents;
@@ -709,6 +709,9 @@ class Annonce
     public function addDocument(\AnnonceBundle\Entity\Document $document)
     {
         $this->documents[] = $document;
+
+        //on lie l'annonce à la photo
+        $document->setAnnonce($this);
 
         return $this;
     }

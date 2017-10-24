@@ -53,6 +53,7 @@ class AnnonceType extends AbstractType
                 ),
                 'data' => 'vendre'
             ))
+
             ->add('titre', TextType::class, array(
                 'label' => 'agents.formulaire.titre',
                 'translation_domain' => 'agents',
@@ -60,6 +61,7 @@ class AnnonceType extends AbstractType
                     'placeholder' => 'agents.formulaire.placeholder.titre'
                 ]
             ))
+
             ->add('description', TextareaType::class, array(
                 'label' => 'agents.formulaire.description',
                 'translation_domain' => 'agents',
@@ -93,6 +95,7 @@ class AnnonceType extends AbstractType
                )
                 */
            )
+
             ->add('devise', EntityType::class, array(
                 'class' => 'AnnonceBundle\Entity\devise',
                 'multiple' => false,
@@ -101,6 +104,7 @@ class AnnonceType extends AbstractType
                'translation_domain' => 'agents'
 
             ))
+
             ->add('prix', TextType::class, array(
                 'label' => 'agents.formulaire.prix',
                 'translation_domain' => 'agents',
@@ -108,6 +112,7 @@ class AnnonceType extends AbstractType
                     'placeholder' => 'agents.formulaire.placeholder.prix'
                 )
             ))
+
             ->add('typePrix', ChoiceType::class, array(
                 'label' => 'agents.formulaire.typeprix',
                 'translation_domain' => 'agents',
@@ -117,6 +122,7 @@ class AnnonceType extends AbstractType
                 ),
                 'choice_translation_domain' => true
             ))
+
             ->add('etatArticleAnnonce', EntityType::class, array(
                 'class' => 'AnnonceBundle\Entity\etatArticleAnnonce',
                 'choice_label' => 'nom',
@@ -125,6 +131,7 @@ class AnnonceType extends AbstractType
                 'multiple' => false,
                 'expanded' => true
             ))
+
             ->add('adresseObjetVendu', TextType::class, array(
                 'label' => 'agents.formulaire.lieu',
                 'translation_domain' => 'agents',
@@ -133,9 +140,6 @@ class AnnonceType extends AbstractType
 
                 ]
             ))
-
-
-
 
             ->add( 'categorie', EntityType::class, array(
                 'label' => 'agents.formulaire.categorie',

@@ -241,11 +241,11 @@
 
                     {#<input type="file" name="files" class="files" id="form_snippet_image"     data-msg-placeholder="Selectionnez {files} à uploader..." multiple>#}
 
+                    {{ dump(form.documents) }}
                     {{ form_errors(form.documents) }}
                     {{ form_widget(form.documents) }}
 
                 {% endblock %}
-
 
                             <div class="section seller-info">
                                 <h4>Ville où se trouve l'objet vendu</h4>

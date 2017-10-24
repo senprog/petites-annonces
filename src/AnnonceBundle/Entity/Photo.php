@@ -37,7 +37,7 @@ class Photo
      * @ORM\Column(name="nom", type="string", length=200)
      * @Assert\NotBlank
      */
-    private $name;
+    private $nom;
 
     /**
      * @var string
@@ -49,10 +49,25 @@ class Photo
     /**
      * @var string
      *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(name="chemin", type="string", length=255)
      */
     private $path;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="path", type="datetime", length=255)
+     */
+    private $dateAjout;
+
+
+    /**
+     *
+     */
+    public function __construct()
+    {
+        $this->dateAjout = new \DateTime();
+    }
 
     /**
      * Get id
@@ -67,13 +82,13 @@ class Photo
     /**
      * Set name
      *
-     * @param string $name
+     * @param string $nom
      *
      * @return Photo
      */
-    public function setName($name)
+    public function setNom($nom)
     {
-        $this->name = $name;
+        $this->nom = $nom;
 
         return $this;
     }
@@ -83,9 +98,9 @@ class Photo
      *
      * @return string
      */
-    public function getName()
+    public function getNom()
     {
-        return $this->name;
+        return $this->nom;
     }
 
     /**
@@ -213,5 +228,28 @@ class Photo
     {
         return $this->getPath();
     }
-}
 
+    /**
+     * Set dateAjout
+     *
+     * @param \DateTime $dateAjout
+     *
+     * @return Photo
+     */
+    public function setDateAjout($dateAjout)
+    {
+        $this->dateAjout = $dateAjout;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAjout
+     *
+     * @return \DateTime
+     */
+    public function getDateAjout()
+    {
+        return $this->dateAjout;
+    }
+}

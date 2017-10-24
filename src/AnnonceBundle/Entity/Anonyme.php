@@ -125,4 +125,3 @@ class Anonyme
         return $this->dateInscription;
     }
 }
-
