@@ -112,7 +112,9 @@ class Annonce
     private $statutAnnonce;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AnnonceBundle\Entity\typeAnnonce", inversedBy="annonce")
+     * @var string
+     *
+     * @ORM\Column(name="type_annonce", type="string", length=255, nullable=false)
      */
     private $typeAnnonce;
 
@@ -403,29 +405,6 @@ class Annonce
         return $this->statutAnnonce;
     }
 
-    /**
-     * Set typeAnnonce
-     *
-     * @param \AnnonceBundle\Entity\typeAnnonce $typeAnnonce
-     *
-     * @return Annonce
-     */
-    public function setTypeAnnonce(\AnnonceBundle\Entity\typeAnnonce $typeAnnonce = null)
-    {
-        $this->typeAnnonce = $typeAnnonce;
-
-        return $this;
-    }
-
-    /**
-     * Get typeAnnonce
-     *
-     * @return \AnnonceBundle\Entity\typeAnnonce
-     */
-    public function getTypeAnnonce()
-    {
-        return $this->typeAnnonce;
-    }
 
     /**
      * Set package
@@ -752,5 +731,29 @@ class Annonce
     public function getDocuments()
     {
         return $this->documents;
+    }
+
+    /**
+     * Set typeAnnonce
+     *
+     * @param string $typeAnnonce
+     *
+     * @return Annonce
+     */
+    public function setTypeAnnonce($typeAnnonce)
+    {
+        $this->typeAnnonce = $typeAnnonce;
+
+        return $this;
+    }
+
+    /**
+     * Get typeAnnonce
+     *
+     * @return string
+     */
+    public function getTypeAnnonce()
+    {
+        return $this->typeAnnonce;
     }
 }

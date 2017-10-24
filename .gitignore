@@ -185,3 +185,5 @@ web/bundles/app/trade-template/images/trending/.DS_Store
 web/bundles/app/trade-template/js/.DS_Store
 web/uploads/fineuploader/
 web/uploads/new.html.twig
+/var/cache/dev/
+/var/logs/

@@ -29,12 +29,6 @@ class typeAnnonce
     private $nom;
 
     /**
-     *
-     * @ORM\OneToMany(targetEntity="AnnonceBundle\Entity\Annonce", mappedBy="typeAnnonce", orphanRemoval=true)
-     */
-    private $annonce;
-
-    /**
      * Get id
      *
      * @return int
@@ -75,39 +69,6 @@ class typeAnnonce
         $this->annonce = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Add annonce
-     *
-     * @param \AnnonceBundle\Entity\Annonce $annonce
-     *
-     * @return typeAnnonce
-     */
-    public function addAnnonce(\AnnonceBundle\Entity\Annonce $annonce)
-    {
-        $this->annonce[] = $annonce;
-
-        return $this;
-    }
-
-    /**
-     * Remove annonce
-     *
-     * @param \AnnonceBundle\Entity\Annonce $annonce
-     */
-    public function removeAnnonce(\AnnonceBundle\Entity\Annonce $annonce)
-    {
-        $this->annonce->removeElement($annonce);
-    }
-
-    /**
-     * Get annonce
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAnnonce()
-    {
-        return $this->annonce;
-    }
 
     public function __toString()
     {

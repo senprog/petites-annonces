@@ -4,10 +4,8 @@ namespace AnnonceBundle\Form;
 
 use AnnonceBundle\Entity\etatArticleAnnonce;
 // use donjohn
-use Donjohn\MediaBundle\Form\Type\MediaCollectionType;
-use Donjohn\MediaBundle\Form\Type\MediaFineUploaderType;
-use Donjohn\MediaBundle\Form\Type\MediaType;
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -20,6 +18,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -41,12 +40,18 @@ class AnnonceType extends AbstractType
     {
 
         $builder
-            ->add('typeAnnonce', EntityType::class, array(
-                'class' => 'AnnonceBundle\Entity\typeAnnonce',
+            ->add('typeAnnonce', ChoiceType::class, array(
                 'label' => 'agents.formulaire.type.annonce',
                 'translation_domain' => 'agents',
                 'multiple' => false,
-                'expanded' => true
+                'expanded' => true,
+                'choices' => array(
+                    'Je vends' => 'vendre',
+                    'J\'achete' => 'acheter',
+                    'J\'echange' => 'echanger',
+                    'Je fais don' => 'donner'
+                ),
+                'data' => 'vendre'
             ))
             ->add('titre', TextType::class, array(
                 'label' => 'agents.formulaire.titre',
