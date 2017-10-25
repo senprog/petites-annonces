@@ -241,7 +241,7 @@
 
                     {#<input type="file" name="files" class="files" id="form_snippet_image"     data-msg-placeholder="Selectionnez {files} à uploader..." multiple>#}
 
-                    {{ dump(form.documents) }}
+                    {#{{ dump(form.documents) }}#}
                     {{ form_errors(form.documents) }}
                     {{ form_widget(form.documents) }}
 
@@ -393,7 +393,7 @@
 
 //    $(document).on('ready', function() {
 
-        var $el1 = $("#annoncebundle_annonce_documents_name");
+        var $el1 = $("#annoncebundle_annonce_documents");
 
         $el1.fileinput({
             theme: 'fa',

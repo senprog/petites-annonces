@@ -2,6 +2,7 @@
 
 namespace AnnonceBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Mykees\MediaBundle\Interfaces\Mediable;
 use Symfony\Component\HttpFoundation\File\File;
@@ -129,6 +130,8 @@ class Annonce
     private $etatArticleAnnonce;
 
     /**
+     * @var ArrayCollection $documents
+     *
      * @ORM\OneToMany(targetEntity="AnnonceBundle\Entity\Document", mappedBy="annonce", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
@@ -173,6 +176,7 @@ class Annonce
     {
         $this->datePublication = new \DateTime();
         $this->nombreVue = 0;
+        $this->documents = new ArrayCollection();
     }
 
     /**

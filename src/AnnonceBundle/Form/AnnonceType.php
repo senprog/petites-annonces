@@ -28,6 +28,7 @@ use Jb\Bundle\FileUploaderBundle\Form\Type\ImageAjaxType;
 
 use AnnonceBundle\Entity\categorieAnnonce;
 use AnnonceBundle\Entity\sousCategorieAnnonce;
+use AnnonceBundle\Form\DocumentType;
 
 class AnnonceType extends AbstractType
 {
@@ -79,22 +80,12 @@ class AnnonceType extends AbstractType
            // TODO: Implementer fonctionnalité de collection d'objet
 
            ->add('documents', CollectionType::class, array(
-                   'entry_type' => DocumentType::class,
-                   'allow_add' => false,
-                   'allow_delete' => true,
-               )
-               /**
-                * , FileType::class, array(
-               'multiple' => true,
-               'label' => 'Images',
-               'required' => false,
-               'attr' => [
-               'class' => 'files',
-               'data-msg-placeholder' => 'Selectionnez {files} à uploader...'
-               ]
-               )
-                */
-           )
+               'entry_type' => DocumentType::class,
+               'prototype'=> true,
+               'allow_add' => true,
+               'allow_delete' => true,
+               'delete_empty' => true
+           ))
 
             ->add('devise', EntityType::class, array(
                 'class' => 'AnnonceBundle\Entity\devise',

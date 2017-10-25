@@ -47,11 +47,12 @@ class AnnonceController extends Controller
         $document = new Document();
         $media = $request->files->get("annoncebundle_annonce");
 
-        dump($media['documents']['name']);
-//        exit();
+        $donnees = $media['documents'][0];
 
+        dump($donnees);
+       // exit();
         // recupere l'extension du fichier
-        $extension = $media['documents']['name'][0]->guessExtension();
+        $extension = $donnees->guessExtension();
 
         if (!$extension) {
             // extension cannot be guessed
@@ -60,7 +61,7 @@ class AnnonceController extends Controller
         // renommer le fichier original
         $nomFichier = $document->genereNom(30).'.'.$extension;
 
-        $document->setFile($media['documents']['name'][0]);
+        $document->setFile($donnees);
         $document->setPath($document->getUploadPicture());   //$media['documents'][0]->getPathName()
         $document->setName($nomFichier);
         $document->setDateajout(new \DateTime());
